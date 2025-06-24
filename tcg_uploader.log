@@ -1,0 +1,212 @@
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+⚠️ Card back detected - skipping
+
+📝 Cubone | 50/64 | Jungle | Common
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Review needed: LOW_CONFIDENCE
+
+📄 Generating Excel file...
+
+==================================================
+✅ Processed 1 cards in 8.9 seconds
+💰 API costs saved: $0.00
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_120959.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Review needed: LOW_CONFIDENCE
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+
+==================================================
+✅ Processed 1 cards in 6.8 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_125155.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Review needed: LOW_CONFIDENCE
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+
+==================================================
+✅ Processed 1 cards in 6.2 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_125717.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Review needed: LOW_CONFIDENCE
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+❌ OpenAI API error: Error code: 404
+
+==================================================
+✅ Processed 1 cards in 3.7 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_130105.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Review needed: LOW_CONFIDENCE
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+❌ OpenAI API error: Error code: 404
+
+==================================================
+✅ Processed 1 cards in 4.5 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_130215.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common
+   📊 Pricing data received:
+      - tcgplayer_url: None
+      - tcgplayer_link: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 Using TCGPlayer link: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Review needed: LOW_CONFIDENCE
+   📦 Final CardData TCGPlayer link: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+❌ OpenAI API error: Error code: 404
+❌ Processing failed: name 'logger' is not defined
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common
+   📊 Pricing data received:
+      - tcgplayer_url: None
+      - tcgplayer_link: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 Using TCGPlayer link: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Review needed: LOW_CONFIDENCE
+   📦 Final CardData TCGPlayer link: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+❌ OpenAI API error: Error code: 404
+   📝 Excel TCGPlayer link for Cubone: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+
+==================================================
+✅ Processed 1 cards in 4.0 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_131005.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common
+   📊 Pricing data received:
+      - tcgplayer_url: None
+      - tcgplayer_link: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 Using TCGPlayer link: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Review needed: LOW_CONFIDENCE
+   📦 Final CardData TCGPlayer link: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+❌ OpenAI API error: Error code: 404
+   📝 Excel TCGPlayer link for Cubone: https://www.tcgplayer.com/search/pokemon/product?q=Cubone&setName=Jungle
+
+==================================================
+✅ Processed 1 cards in 5.9 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_131021.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common
+   🔍 Fetching fresh pricing data from API
+   📊 Pokemon TCG API - TCGPlayer data:
+      - Full tcgplayer object: {'url': 'https://prices.pokemontcg.io/tcgplayer/base2-50', 'updatedAt': '2025/06/24', 'prices': {'1stEdition': {'low': 0.4, 'mid': 1.35, 'high': 54.99, 'market': 2.35, 'directLow': 2.35}, 'unlimited': {'low': 0.18, 'mid': 0.4, 'high': 170414.69, 'market': 0.36, 'directLow': None}}}
+      - TCGPlayer URL: https://prices.pokemontcg.io/tcgplayer/base2-50
+   📊 Pricing data received:
+      - tcgplayer_url: https://prices.pokemontcg.io/tcgplayer/base2-50
+      - tcgplayer_link: https://prices.pokemontcg.io/tcgplayer/base2-50
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 Using TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+⚠️ Review needed: LOW_CONFIDENCE
+   📦 Final CardData TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+❌ OpenAI API error: Connection error.
+   📝 Excel TCGPlayer link for Cubone: https://prices.pokemontcg.io/tcgplayer/base2-50
+
+==================================================
+✅ Processed 1 cards in 5.4 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_131312.xlsx
+✅ Cleanup completed
