@@ -58,7 +58,7 @@ class ExcelGenerator:
         return str(output_path)
     
     def _generate_fallback_title(self, card: CardData) -> str:
-        """Generate fallback title"""
+        """Generate fallback title with smart filtering of boring terms"""
         parts = []
         
         # Game prefix
@@ -78,17 +78,19 @@ class ExcelGenerator:
         if card.set_name:
             parts.append(card.set_name)
         
-        # Rarity/finish if meaningful
-        if card.rarity and card.rarity.lower() not in ['common', 'normal']:
+        # Rarity - ONLY if attractive (skip common/uncommon)
+        if card.rarity and card.rarity.lower() not in ['common', 'uncommon', 'normal', 'regular']:
             parts.append(card.rarity)
         
-        if card.finish and card.finish.lower() not in ['normal', 'regular']:
+        # Finish - ONLY if meaningful (skip boring finishes)
+        if card.finish and card.finish.lower() not in ['normal', 'regular', 'standard', 'non-holo', 'non-foil']:
             parts.append(card.finish)
         
-        # Unique characteristics
+        # Unique characteristics - skip Unlimited (it's the default)
         for char in card.unique_characteristics[:1]:
-            parts.append(char)
-            break
+            if char.lower() != 'unlimited':
+                parts.append(char)
+                break
         
         # Condition
         parts.append('NM/LP')

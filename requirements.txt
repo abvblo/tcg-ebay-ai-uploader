@@ -22,5 +22,8 @@ tenacity>=8.2.0
 # OpenAI
 openai>=1.0.0
 
+# Environment variables
+python-dotenv>=1.0.0
+
 # Type hints (for older Python versions)
 typing-extensions>=4.5.0

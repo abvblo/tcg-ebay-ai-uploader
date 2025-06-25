@@ -73,6 +73,15 @@ class CardData:
     types: List[str] = field(default_factory=list)
     subtypes: List[str] = field(default_factory=list)
     artist: Optional[str] = None
+    release_date: Optional[str] = None
+    
+    # NEW FIELDS for eBay
+    toughness: Optional[str] = None  # MTG defense/toughness
+    power: Optional[str] = None      # MTG power (for completeness)
+    card_size: str = "Standard"      # Standard or Oversized
+    year_manufactured: Optional[str] = None
+    is_vintage: bool = False
+    country_manufacture: str = "United States"
     
     # Images
     image_urls: List[str] = field(default_factory=list)
@@ -103,6 +112,13 @@ class CardData:
             'types': self.types,
             'subtypes': self.subtypes,
             'artist': self.artist,
+            'release_date': self.release_date,
+            'power': self.power,
+            'toughness': self.toughness,
+            'card_size': self.card_size,
+            'year_manufactured': self.year_manufactured,
+            'is_vintage': self.is_vintage,
+            'country_manufacture': self.country_manufacture,
             'image_urls': self.image_urls,
             'primary_image_url': self.primary_image_url,
             'review_flag': self.review_flag,

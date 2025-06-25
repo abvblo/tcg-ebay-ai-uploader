@@ -77,7 +77,7 @@ class OpenAITitleOptimizer:
     2. Card numbers: use "25/102" format when both number and total are available
     3. NEVER include boring/default terms that don't add value:
        - Skip: Normal, Regular, Standard, Basic (as finish)
-       - Skip: Common (unless it's the actual rarity)
+       - Skip: Common (as rarity - buyers know it's common if nothing else is mentioned)
        - Skip: Non-Holo, Non-Foil
        - Skip: English (NEVER include - English is assumed)
     4. ALWAYS include meaningful terms:

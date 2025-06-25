@@ -96,10 +96,10 @@ class XimilarClient:
             'set_name': set_name,
             'rarity': rarity,
             'game': self._determine_game_type(set_name, name),
-            'finish': self._determine_finish(rarity),
+            'finish': self._determine_finish(rarity),  # Basic fallback - real finish comes from APIs
             'confidence': confidence,  # Now using the correct confidence value
             'match_confidence': match_confidence,  # Additional metric for reference
-            'unique_characteristics': unique_characteristics,
+            'unique_characteristics': unique_characteristics,  # Basic extraction - enhanced by APIs
             'source_image_url': image_url
         }
     
@@ -154,25 +154,6 @@ class XimilarClient:
         return 'Pokémon'
     
     def _determine_finish(self, rarity: str) -> str:
-        """Determine finish from rarity"""
-        if not rarity:
-            return ''
-        
-        rarity_lower = rarity.lower()
-        
-        # Don't duplicate if already in rarity
-        if any(term in rarity_lower for term in [
-            'holo rare', 'secret rare', 'rainbow rare', 'gold rare', 
-            'reverse holo', 'full art'
-        ]):
-            return ''
-        
-        # Extract finish if present
-        if 'holo' in rarity_lower and 'rare' not in rarity_lower:
-            return 'Holo'
-        elif 'foil' in rarity_lower:
-            return 'Foil'
-        elif 'reverse' in rarity_lower:
-            return 'Reverse Holo'
-        
+        """Basic finish determination from rarity (will be overridden by API data)"""
+        # This is now just a basic fallback - the real finish comes from Pokemon TCG/Scryfall APIs
         return ''
