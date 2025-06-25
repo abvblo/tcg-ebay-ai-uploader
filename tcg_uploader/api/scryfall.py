@@ -2,7 +2,7 @@
 
 import aiohttp
 import asyncio
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
 from ..utils.logger import logger
 
 class ScryfallClient:
@@ -11,7 +11,8 @@ class ScryfallClient:
         self.rate_limit = rate_limit
     
     async def get_card_data(self, card_name: str, set_name: str, 
-                           session: aiohttp.ClientSession) -> Optional[Dict[str, Any]]:
+                           session: aiohttp.ClientSession,
+                           unique_characteristics: List[str] = None) -> Optional[Dict[str, Any]]:
         """Get card data from Scryfall API"""
         # Build search query
         search_query = f'name:"{card_name}"'
@@ -38,7 +39,21 @@ class ScryfallClient:
                     
                     if cards:
                         card = cards[0]  # Take first match
-                        usd_price = float(card.get('prices', {}).get('usd', 0) or 0)
+                        
+                        # For MTG, handle foil vs non-foil based on characteristics
+                        is_foil = False
+                        if unique_characteristics:
+                            is_foil = any('foil' in char.lower() for char in unique_characteristics)
+                        
+                        prices = card.get('prices', {})
+                        
+                        # Select appropriate price
+                        if is_foil and 'usd_foil' in prices:
+                            usd_price = float(prices.get('usd_foil', 0) or 0)
+                            logger.info(f"   💰 Using foil price: ${usd_price}")
+                        else:
+                            usd_price = float(prices.get('usd', 0) or 0)
+                            logger.info(f"   💰 Using regular price: ${usd_price}")
                         
                         if usd_price > 0:
                             return self._format_card_data(card, usd_price)
@@ -51,6 +66,15 @@ class ScryfallClient:
     
     def _format_card_data(self, card: Dict[str, Any], market_price: float) -> Dict[str, Any]:
         """Format MTG card data"""
+        # Scryfall provides purchase URLs
+        purchase_urls = card.get('purchase_uris', {})
+        tcgplayer_url = purchase_urls.get('tcgplayer', '')
+        
+        # Log what we're getting
+        logger.info(f"   📊 Scryfall API - TCGPlayer data:")
+        logger.info(f"      - Purchase URIs: {purchase_urls}")
+        logger.info(f"      - TCGPlayer URL: {tcgplayer_url}")
+        
         return {
             'api_price': market_price,
             'price_source': 'Scryfall API',
@@ -67,5 +91,7 @@ class ScryfallClient:
             'set_confirmed': card.get('set_name'),
             'collector_number': card.get('collector_number'),
             'release_date': card.get('released_at'),
-            'data_source': 'Scryfall API'
+            'data_source': 'Scryfall API',
+            'tcgplayer_url': tcgplayer_url,  # Direct URL from API
+            'tcgplayer_link': tcgplayer_url  # Also set as tcgplayer_link for consistency
         }

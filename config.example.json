@@ -1,0 +1,14 @@
+{
+  "ximilar": {
+    "api_key": "YOUR_XIMILAR_API_KEY_HERE",
+    "endpoint": "YOUR_ENDPOINT_HERE"
+  },
+  "pokemon_tcg_api_key": "YOUR_POKEMON_TCG_API_KEY",
+  "openai_api_key": "YOUR_OPENAI_API_KEY",
+  "ebay_api": {
+    "appid": "YOUR_EBAY_APP_ID",
+    "certid": "YOUR_EBAY_CERT_ID",
+    "devid": "YOUR_EBAY_DEV_ID",
+    "token": "YOUR_EBAY_TOKEN"
+  }
+}

@@ -92,10 +92,12 @@ class CardIdentifier:
                 self.metrics.record_api_call('ximilar')
             
             # Log identification
+            unique_chars_str = ', '.join(card_data.get('unique_characteristics', [])) if card_data.get('unique_characteristics') else 'None'
             logger.info(f"\n📝 {card_data['name']} | {card_data['number']} | "
-                       f"{card_data['set_name']} | {card_data['rarity']}")
+                       f"{card_data['set_name']} | {card_data['rarity']} | "
+                       f"Unique: {unique_chars_str}")
             
-            # Get pricing data
+            # Get pricing data with unique characteristics
             pricing_data = await self._get_pricing_data(card_data, session)
             
             # Log what we got from pricing data
@@ -153,6 +155,7 @@ class CardIdentifier:
         card_name = card_data['name']
         set_name = card_data['set_name']
         game = card_data['game']
+        unique_characteristics = card_data.get('unique_characteristics', [])
         
         # Check cache
         cached_data = self.cache.get_cached_card_data(card_name, set_name)
@@ -167,7 +170,13 @@ class CardIdentifier:
         
         # Get from API
         if game == 'Pokémon':
-            api_data = await self.pokemon_tcg.get_card_data(card_name, set_name, session)
+            # Pass unique characteristics to Pokemon TCG API
+            api_data = await self.pokemon_tcg.get_card_data(
+                card_name, 
+                set_name, 
+                session,
+                unique_characteristics=unique_characteristics
+            )
         else:
             api_data = await self.scryfall.get_card_data(card_name, set_name, session)
         

@@ -1,0 +1,23 @@
+# Configuration files with sensitive data
+config.json
+
+# Cache directory
+output/ultra_cache/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac system files
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output files (optional - depends if you want to track these)
+output/*.xlsx
+output/*.csv

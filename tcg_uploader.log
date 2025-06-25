@@ -210,3 +210,163 @@
 ==================================================
 📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_131312.xlsx
 ✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common
+   💾 Using cached pricing data
+      - Cached tcgplayer_url: https://prices.pokemontcg.io/tcgplayer/base2-50
+      - Cached tcgplayer_link: https://prices.pokemontcg.io/tcgplayer/base2-50
+   📊 Pricing data received:
+      - tcgplayer_url: https://prices.pokemontcg.io/tcgplayer/base2-50
+      - tcgplayer_link: https://prices.pokemontcg.io/tcgplayer/base2-50
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 Using TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+⚠️ Review needed: LOW_CONFIDENCE
+   📦 Final CardData TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+   📝 Excel TCGPlayer link for Cubone: https://prices.pokemontcg.io/tcgplayer/base2-50
+
+==================================================
+✅ Processed 1 cards in 8.0 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_141013.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common | Unique: None
+   💾 Using cached pricing data
+      - Cached tcgplayer_url: https://prices.pokemontcg.io/tcgplayer/base2-50
+      - Cached tcgplayer_link: https://prices.pokemontcg.io/tcgplayer/base2-50
+   📊 Pricing data received:
+      - tcgplayer_url: https://prices.pokemontcg.io/tcgplayer/base2-50
+      - tcgplayer_link: https://prices.pokemontcg.io/tcgplayer/base2-50
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 Using TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+⚠️ Review needed: LOW_CONFIDENCE
+   📦 Final CardData TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+❌ OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************SyEA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+   📝 Excel TCGPlayer link for Cubone: https://prices.pokemontcg.io/tcgplayer/base2-50
+
+==================================================
+✅ Processed 1 cards in 3.9 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250624_220515.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+
+📝 Cubone | 50/64 | Jungle | Common | Unique: None
+   💾 Using cached pricing data
+      - Cached tcgplayer_url: https://prices.pokemontcg.io/tcgplayer/base2-50
+      - Cached tcgplayer_link: https://prices.pokemontcg.io/tcgplayer/base2-50
+   📊 Pricing data received:
+      - tcgplayer_url: https://prices.pokemontcg.io/tcgplayer/base2-50
+      - tcgplayer_link: https://prices.pokemontcg.io/tcgplayer/base2-50
+💰 TCGPlayer Price: $2.35
+📈 Final Price: $3.06
+🔗 Using TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+⚠️ Review needed: LOW_CONFIDENCE
+   📦 Final CardData TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+⚠️ Card back detected - skipping
+
+📄 Generating Excel file...
+❌ OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************SyEA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+   📝 Excel TCGPlayer link for Cubone: https://prices.pokemontcg.io/tcgplayer/base2-50
+
+==================================================
+✅ Processed 1 cards in 4.5 seconds
+💰 API costs saved: $0.01
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250625_082936.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+⚠️ Card back detected - skipping
+
+📝 Cubone | 50/64 | Jungle | Common | Unique: None
+   🔍 Fetching fresh pricing data from API
+   💳 Available price categories: ['1stEdition', 'unlimited']
+   🎯 Card characteristics: None
+   🔍 Checking price categories in order: ['unlimited']...
+   💰 Using market price from 'unlimited': $0.36
+   📊 Pokemon TCG API - Final data:
+      - Price category used: unlimited
+      - Market price: $0.36
+      - TCGPlayer URL: https://prices.pokemontcg.io/tcgplayer/base2-50
+   📊 Pricing data received:
+      - tcgplayer_url: https://prices.pokemontcg.io/tcgplayer/base2-50
+      - tcgplayer_link: https://prices.pokemontcg.io/tcgplayer/base2-50
+💰 TCGPlayer Price: $0.36
+📈 Final Price: $1.99
+🔗 Using TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+⚠️ Review needed: LOW_CONFIDENCE
+   📦 Final CardData TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+
+📄 Generating Excel file...
+❌ OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************SyEA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+   📝 Excel TCGPlayer link for Cubone: https://prices.pokemontcg.io/tcgplayer/base2-50
+
+==================================================
+✅ Processed 1 cards in 9.3 seconds
+💰 API costs saved: $0.00
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250625_083204.xlsx
+✅ Cleanup completed
+🚀 TCG Batch Uploader Starting...
+==================================================
+✅ Found 2 groups containing 2 total images
+📁 Found 2 cards to process
+⚠️ Card back detected - skipping
+
+📝 Cubone | 50/64 | Jungle | Common | Unique: None
+   🔍 Fetching fresh pricing data from API
+   💳 Available price categories: ['1stEdition', 'unlimited']
+   🎯 Card characteristics: None
+   🔍 Checking price categories in order: ['unlimited']...
+   💰 Using market price from 'unlimited': $0.36
+   📊 Pokemon TCG API - Final data:
+      - Price category used: unlimited
+      - Market price: $0.36
+      - TCGPlayer URL: https://prices.pokemontcg.io/tcgplayer/base2-50
+   📊 Pricing data received:
+      - tcgplayer_url: https://prices.pokemontcg.io/tcgplayer/base2-50
+      - tcgplayer_link: https://prices.pokemontcg.io/tcgplayer/base2-50
+💰 TCGPlayer Price: $0.36
+📈 Final Price: $1.99
+🔗 Using TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+   📦 Final CardData TCGPlayer link: https://prices.pokemontcg.io/tcgplayer/base2-50
+
+📄 Generating Excel file...
+❌ OpenAI API error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************SyEA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+   📝 Excel TCGPlayer link for Cubone: https://prices.pokemontcg.io/tcgplayer/base2-50
+
+==================================================
+✅ Processed 1 cards in 5.9 seconds
+💰 API costs saved: $0.00
+📊 Items needing review: 0
+==================================================
+📄 Output saved to: /Users/mateoallen/Library/CloudStorage/GoogleDrive-abovebelow.gg@gmail.com/My Drive/Project Folders/eBay TCG Batch Uploader/output/tcg_listings_20250625_085716.xlsx
+✅ Cleanup completed

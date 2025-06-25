@@ -71,7 +71,21 @@ class XimilarClient:
         out_of = best_match.get("out_of", "")
         set_name = best_match.get("set", "").strip()
         rarity = best_match.get("rarity", "").strip()
-        confidence = identification.get("confidence", 0)
+        
+        # FIX: Extract confidence from the correct location
+        # Option 1: Use card detection probability (how confident it is that this is a card)
+        card_detection_confidence = card_obj.get("prob", 0)
+        
+        # Option 2: Use match distance (how close the best match is)
+        distances = identification.get("distances", [])
+        match_confidence = 1 - distances[0] if distances else 0
+        
+        # Use card detection confidence as primary metric
+        confidence = card_detection_confidence
+        
+        # Log both confidence metrics for debugging
+        logger.debug(f"   🎯 Card Detection Confidence: {card_detection_confidence:.2%}")
+        logger.debug(f"   📏 Match Distance: {distances[0] if distances else 'N/A'} (Match Confidence: {match_confidence:.2%})")
         
         # Clean name and extract unique characteristics
         clean_name, unique_characteristics = self._extract_unique_characteristics(name)
@@ -83,7 +97,8 @@ class XimilarClient:
             'rarity': rarity,
             'game': self._determine_game_type(set_name, name),
             'finish': self._determine_finish(rarity),
-            'confidence': confidence,
+            'confidence': confidence,  # Now using the correct confidence value
+            'match_confidence': match_confidence,  # Additional metric for reference
             'unique_characteristics': unique_characteristics,
             'source_image_url': image_url
         }
