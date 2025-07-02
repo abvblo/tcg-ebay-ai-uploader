@@ -80,14 +80,23 @@ class OpenAITitleOptimizer:
        - Skip: Common (as rarity - buyers know it's common if nothing else is mentioned)
        - Skip: Non-Holo, Non-Foil
        - Skip: English (NEVER include - English is assumed)
+       - Skip: Uncommon (for Pokemon) - it's not a selling point
     4. ALWAYS include meaningful terms:
-       - Rarities: Rare, Uncommon, Common, Secret Rare, Ultra Rare, etc.
+       - Important Rarities: Rare, Rare Holo, Ultra Rare, Secret Rare, Full Art, etc.
        - Finishes: Holo, Reverse Holo, Foil, Rainbow, Gold, Full Art, Alt Art
+       - CRITICAL: If a card has any holo/foil finish, ALWAYS include it in the title
        - Unique Characteristics: 1st Edition, Shadowless, Unlimited, Stamped, Promo, Staff, Error, Misprint, Pre-release
     5. Condition is ALWAYS "NM/LP" (Near Mint/Lightly Played)
     6. ONLY add "JP" at the end for Japanese cards - NEVER mention English
-    7. eBay character limit: 80 characters max
+    7. eBay character limit: 80 characters MAXIMUM - titles over 80 chars will be rejected
     8. Use spaces between elements, no pipe separators
+    9. NEVER repeat words (e.g., "Promo Promos" should just be "Promo")
+    10. For Promo cards: just use "Promo" once, never "Black & White Promos Promo"
+
+    RARITY RULES:
+    - For Pokemon: Only include if Rare or better (skip Common/Uncommon)
+    - For MTG: Include all rarities
+    - ALWAYS include "Holo" or "Foil" if present - this is crucial for value
 
     LANGUAGE RULES:
     - English cards: NEVER mention language
@@ -110,10 +119,12 @@ class OpenAITitleOptimizer:
     ✓ Pokémon Ancient Mew Promo Holo NM/LP
     ✓ Pokémon Dark Charizard 4/82 Team Rocket Holo Rare NM/LP JP
     ✓ MTG Lightning Bolt Beta NM/LP
-    ✓ Pokémon Tropical Mega Battle No. 2 Trainer Promo NM/LP
+    ✓ Pokémon Tropical Mega Battle Promo NM/LP
     ✓ Pokémon Bulbasaur 44/102 Base Set Shadowless NM/LP
+    ✓ Pokémon Totodile 5/12 McDonald's Collection 2016 NM/LP
+    ✓ Pokémon Zacian SWSH135 SWSH Promos NM/LP
 
-    Remember: You're a market expert. Only include terms that matter to buyers and affect value."""
+    Remember: You're a market expert. Only include terms that matter to buyers and affect value. Keep titles under 80 characters!"""
     
     def _build_user_prompt(self, batch: List[Dict[str, Any]]) -> str:
         """Build user prompt for batch"""
@@ -153,21 +164,44 @@ class OpenAITitleOptimizer:
             parts.append(card_data['number'])
         
         if card_data.get('set_name'):
-            parts.append(card_data['set_name'])
+            set_name = card_data['set_name']
+            # Avoid redundant "Promo Promos"
+            if 'Promos' in set_name and 'Promo' in card_data.get('unique_characteristics', []):
+                # Remove "Promos" from set name
+                set_name = set_name.replace(' Promos', '').replace('Promos', '')
+            parts.append(set_name)
         
-        # Add rarity if meaningful
+        # Add rarity if meaningful (skip uncommon for Pokemon)
         rarity = card_data.get('rarity', '').strip()
-        if rarity and rarity.lower() not in ['common', 'normal', 'regular']:
-            parts.append(rarity)
+        is_pokemon = game.lower() in ['pokémon', 'pokemon']
+        if rarity:
+            if is_pokemon and rarity.lower() not in ['common', 'uncommon', 'normal', 'regular']:
+                parts.append(rarity)
+            elif not is_pokemon and rarity.lower() not in ['normal', 'regular']:
+                parts.append(rarity)
         
-        # Add finish if meaningful
+        # Add finish if meaningful - CRITICAL for value
         finish = card_data.get('finish', '').strip()
-        if finish and finish.lower() not in ['normal', 'regular', 'standard']:
-            parts.append(finish)
+        if finish and finish.lower() not in ['normal', 'regular', 'standard', 'non-foil', 'nonfoil']:
+            # Ensure we include holo/foil terms
+            if 'holo' in finish.lower() or 'foil' in finish.lower():
+                parts.append(finish)
         
-        # Add unique characteristics
+        # Check if rarity indicates holo but finish doesn't
+        if rarity and 'holo' in rarity.lower() and not any('holo' in p.lower() for p in parts):
+            # Ensure Holo is in the title
+            if 'Rare Holo' in rarity:
+                # Replace 'Rare' with 'Rare Holo' if needed
+                for i, part in enumerate(parts):
+                    if part == 'Rare':
+                        parts[i] = 'Rare Holo'
+                        break
+        
+        # Add unique characteristics (avoid duplication)
         for char in card_data.get('unique_characteristics', [])[:1]:
-            parts.append(char)
+            # Skip if already in set name or other parts
+            if not any(char.lower() in p.lower() for p in parts):
+                parts.append(char)
             break
         
         # Always add condition
@@ -180,6 +214,11 @@ class OpenAITitleOptimizer:
         # Join and truncate if needed
         title = ' '.join(parts)
         if len(title) > 80:
-            title = title[:77] + "..."
+            # Intelligently truncate - keep the most important parts
+            # Priority: Game, Name, Number, Set (truncated), Condition
+            essential_parts = parts[:4] + parts[-1:]  # Game, Name, Number, Set, Condition
+            title = ' '.join(essential_parts)
+            if len(title) > 80:
+                title = title[:77] + "..."
         
         return title

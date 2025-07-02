@@ -106,6 +106,10 @@ class CardIdentifier:
             if unique_chars_str != 'None':
                 logger.info(f"   🎯 Unique characteristics: {unique_chars_str}")
             
+            # Extra warning for low confidence on special cards
+            if confidence_pct < 92 and any(term in card_data['name'].lower() for term in [' v', ' vmax', ' gx', ' ex', 'break']):
+                logger.warning(f"   ⚠️ Low confidence ({confidence_pct:.1f}%) on special card type - verify identification")
+            
             # Get pricing data with unique characteristics
             pricing_data = await self._get_pricing_data(card_data, session)
             
@@ -325,7 +329,93 @@ class CardIdentifier:
         if card_data.confidence < self.config.processing.confidence_threshold_low:
             return 'LOW_CONFIDENCE'
         
+        # Check for potential misidentification based on card number patterns
+        if self._is_likely_misidentified(card_data):
+            return 'POSSIBLE_MISIDENTIFICATION'
+        
+        # Flag high-value card types for manual review regardless of confidence
+        card_name_lower = card_data.name.lower()
+        high_value_types = [' v', ' vmax', ' vstar', ' gx', ' ex', 'break', ' prime', ' legend', ' gold']
+        if any(hvt in card_name_lower for hvt in high_value_types):
+            # These cards are worth manual verification even at high confidence
+            if card_data.confidence < 0.95:  # Only skip review at 95%+ confidence
+                return 'HIGH_VALUE_VERIFY'
+        
+        # Flag cards with unusual price patterns
+        if hasattr(card_data, 'api_price') and hasattr(card_data, 'final_price'):
+            # If a "common" card has high price, might be misidentified
+            if card_data.rarity in ['Common', ''] and card_data.final_price > 5.00:
+                return 'PRICE_MISMATCH'
+        
         return 'OK'
+    
+    def _is_likely_misidentified(self, card_data: CardData) -> bool:
+        """Check if card is likely misidentified based on card number patterns and name"""
+        card_number = card_data.number
+        set_name = card_data.set_name.lower()
+        card_name = card_data.name.lower()
+        
+        # Check for BREAK cards being misidentified as V cards
+        if ' v' in card_name and 'break' not in card_name:
+            # V cards should have specific patterns
+            if not any(suffix in card_name for suffix in [' v', ' vmax', ' vstar', 'v-union']):
+                logger.warning(f"   ⚠️ Suspicious V card name: {card_data.name}")
+                return True
+        
+        # Check for missing BREAK in name but BREAK-like number pattern
+        if '/' in card_number and 'break' not in card_name:
+            # BREAK cards often have distinctive numbering
+            parts = card_number.split('/')
+            if len(parts) == 2:
+                try:
+                    num = int(parts[0])
+                    total = int(parts[1])
+                    # If confidence is lower and it's a special number, might be BREAK
+                    if card_data.confidence < 0.93 and (num > total or 'xy' in set_name.lower()):
+                        logger.warning(f"   ⚠️ Card might be a BREAK card based on numbering")
+                        return True
+                except ValueError:
+                    pass
+        
+        # McDonald's Collection cards have distinctive numbering (e.g., "5/12")
+        if '/' in card_number:
+            parts = card_number.split('/')
+            if len(parts) == 2:
+                try:
+                    num = int(parts[0])
+                    total = int(parts[1])
+                    
+                    # McDonald's collections typically have 12 cards or similar small sets
+                    if total <= 25 and total >= 6:
+                        # Check if set name doesn't match the expected McDonald's pattern
+                        if 'mcdonald' not in set_name and 'mc' not in set_name:
+                            logger.warning(f"   ⚠️ Possible misidentification: Card {num}/{total} might be a McDonald's promo")
+                            return True
+                    
+                    # Check for other promo patterns
+                    if 'promo' not in set_name.lower() and total < 30:
+                        # Small sets are often promos
+                        logger.warning(f"   ⚠️ Card number {card_number} suggests a promo set")
+                        return True
+                        
+                except ValueError:
+                    pass
+        
+        # Check for promo number patterns (e.g., "BW81", "SWSH135")
+        import re
+        promo_pattern = re.match(r'^(BW|XY|SM|SWSH|SV)\d+$', card_number, re.IGNORECASE)
+        if promo_pattern and 'promo' not in set_name:
+            logger.warning(f"   ⚠️ Card number {card_number} is a promo pattern but set is {card_data.set_name}")
+            return True
+        
+        # Check for card type mismatches
+        if any(term in card_name for term in [' gx', ' ex', ' lv.x', ' prime', ' legend']):
+            # These are older card types that shouldn't appear in modern sets
+            if any(modern in set_name for modern in ['sword', 'shield', 'scarlet', 'violet', 'chilling', 'fusion']):
+                logger.warning(f"   ⚠️ Old card type ({card_data.name}) in modern set ({card_data.set_name})")
+                return True
+        
+        return False
     
     def _generate_tcgplayer_link(self, card_name: str, set_name: str, game: str) -> str:
         """Generate TCGPlayer search link (fallback only)"""

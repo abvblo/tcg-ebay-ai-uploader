@@ -1,15 +1,20 @@
-"""Data models and types for TCG Uploader"""
+"""Data models for TCG eBay uploader"""
 
 from dataclasses import dataclass, field
-from typing import List, Dict, Any, Optional
-from datetime import datetime
+from typing import List, Optional, Dict, Any
 
 @dataclass
 class ProcessingConfig:
-    """Configuration for processing"""
+    """Processing configuration with defaults"""
+    # Concurrency settings
     max_concurrent_groups: int = 15
     max_concurrent_api_calls: int = 25
+    
+    # Cache settings
     cache_size_gb: int = 10
+    cache_ttl: int = 30  # days
+    
+    # Retry settings
     retry_attempts: int = 3
     connection_timeout: int = 45
     read_timeout: int = 90
@@ -30,16 +35,13 @@ class ProcessingConfig:
     markup_percentage: float = 1.30
     minimum_price_floor: float = 1.99
     
-    # Caching
-    cache_ttl: int = 30  # days
-    
     # Memory management
     max_images_in_memory: int = 50
     gc_threshold: int = 100
 
 @dataclass
 class ImageGroup:
-    """Represents a group of related images"""
+    """Group of related images (front/back of same card)"""
     key: str
     paths: List[str]
     is_sequential_pair: bool = False
@@ -48,8 +50,8 @@ class ImageGroup:
 
 @dataclass
 class CardData:
-    """Complete card data"""
-    # Identification
+    """Processed card data ready for eBay listing"""
+    # Core identification
     name: str
     set_name: str
     number: str
@@ -57,71 +59,86 @@ class CardData:
     game: str
     confidence: float
     
-    # Pricing
-    api_price: float = 0.0
-    final_price: float = 0.0
-    price_source: str = ""
-    tcgplayer_link: str = ""
-    
-    # Additional data
-    finish: str = ""
-    language: str = "English"
+    # Card details
+    finish: str = ''
     unique_characteristics: List[str] = field(default_factory=list)
+    language: str = 'English'
     
-    # API data
+    # Pricing
+    api_price: float = 5.00
+    final_price: float = 5.00
+    price_source: str = 'Default'
+    tcgplayer_link: str = ''
+    
+    # Processing metadata
+    review_flag: str = 'OK'
+    processing_notes: str = ''
+    
+    # Images
+    image_urls: List[str] = field(default_factory=list)
+    primary_image_url: str = ''
+    
+    # Additional API data
     hp: Optional[str] = None
     types: List[str] = field(default_factory=list)
     subtypes: List[str] = field(default_factory=list)
     artist: Optional[str] = None
     release_date: Optional[str] = None
     
-    # NEW FIELDS for eBay
-    toughness: Optional[str] = None  # MTG defense/toughness
-    power: Optional[str] = None      # MTG power (for completeness)
-    card_size: str = "Standard"      # Standard or Oversized
-    year_manufactured: Optional[str] = None
-    is_vintage: bool = False
-    country_manufacture: str = "United States"
+    # MTG specific
+    power: Optional[str] = None
+    toughness: Optional[str] = None
     
-    # Images
-    image_urls: List[str] = field(default_factory=list)
-    primary_image_url: str = ""
+    # Card size (for oversized cards)
+    card_size: str = 'Standard'
     
-    # Processing metadata
-    review_flag: str = "OK"
-    processing_notes: str = ""
-    processed_at: str = field(default_factory=lambda: datetime.now().isoformat())
+    # Variation-specific fields
+    is_variation_parent: bool = False
+    variation_count: int = 1
+    variations: List[Dict[str, Any]] = field(default_factory=list)
     
     def to_dict(self) -> Dict[str, Any]:
-        """Convert to dictionary"""
-        return {
+        """Convert to dictionary for API calls"""
+        data = {
             'name': self.name,
             'set_name': self.set_name,
             'number': self.number,
             'rarity': self.rarity,
             'game': self.game,
             'confidence': self.confidence,
+            'finish': self.finish,
+            'unique_characteristics': self.unique_characteristics,
+            'language': self.language,
             'api_price': self.api_price,
-            'market_price': self.final_price,
+            'final_price': self.final_price,
             'price_source': self.price_source,
             'tcgplayer_link': self.tcgplayer_link,
-            'finish': self.finish,
-            'language': self.language,
-            'unique_characteristics': self.unique_characteristics,
-            'hp': self.hp,
-            'types': self.types,
-            'subtypes': self.subtypes,
-            'artist': self.artist,
-            'release_date': self.release_date,
-            'power': self.power,
-            'toughness': self.toughness,
-            'card_size': self.card_size,
-            'year_manufactured': self.year_manufactured,
-            'is_vintage': self.is_vintage,
-            'country_manufacture': self.country_manufacture,
-            'image_urls': self.image_urls,
-            'primary_image_url': self.primary_image_url,
             'review_flag': self.review_flag,
             'processing_notes': self.processing_notes,
-            'processed_at': self.processed_at
+            'image_urls': self.image_urls,
+            'primary_image_url': self.primary_image_url,
+            # Add variation fields
+            'is_variation_parent': self.is_variation_parent,
+            'variation_count': self.variation_count,
+            'variations': self.variations
         }
+        
+        # Include optional fields if present
+        if self.hp:
+            data['hp'] = self.hp
+        if self.types:
+            data['types'] = self.types
+        if self.subtypes:
+            data['subtypes'] = self.subtypes
+        if self.artist:
+            data['artist'] = self.artist
+        if self.release_date:
+            data['release_date'] = self.release_date
+        if self.power:
+            data['power'] = self.power
+        if self.toughness:
+            data['toughness'] = self.toughness
+        if self.card_size != 'Standard':
+            data['card_size'] = self.card_size
+            
+        return data

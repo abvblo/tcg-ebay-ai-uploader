@@ -1,7 +1,6 @@
 # Core async libraries
 aiohttp>=3.8.0
 aiofiles>=23.0.0
-asyncio>=3.4.3
 
 # Caching
 diskcache>=5.6.0
