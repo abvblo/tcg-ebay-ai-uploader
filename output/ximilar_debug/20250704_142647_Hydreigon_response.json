@@ -1,0 +1,243 @@
+{
+  "timestamp": "20250704_142647",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTc0/z/RLYAAeSwYvpoaEcU/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTc0/z/RLYAAeSwYvpoaEcU/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "7f342f79-5771-4a5f-99f1-6c843ede9977"
+        },
+        "_id": "a6bf1227-5dfb-4571-a4c7-265f67f28ce9",
+        "_width": 294,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              11,
+              3,
+              283,
+              392
+            ],
+            "prob": 0.926257848739624,
+            "area": 0.8997278911564626,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.99707,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.99149,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.67634,
+                  "name": "Foil/Holo",
+                  "id": "f8ade5be-18f3-49d2-aa76-2431a16bd3f7"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.99427,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.78935,
+                  "name": "russian",
+                  "id": "633c0fe9-75a1-4f9e-85ce-c32bf0635cb0"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.9216,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.9721,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Foil/Holo",
+              "rotation_ok",
+              "russian",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "set": "Legendary Treasures",
+                "card_number": "99",
+                "set_code": "LTR",
+                "name": "Hydreigon",
+                "year": 2013,
+                "rarity": "Rare Holo",
+                "set_series_code": "BW11",
+                "out_of": "113",
+                "full_name": "Hydreigon Legendary Treasures (LTR) #99",
+                "type": "Pokemon",
+                "color": "Dragon",
+                "series": "Black & White",
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/86243",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Hydreigon+LTR+%2399&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "set": "Noble Victories",
+                  "card_number": "79",
+                  "set_code": "NVI",
+                  "name": "Hydreigon",
+                  "year": 2011,
+                  "rarity": "Rare Holo",
+                  "set_series_code": "BW3",
+                  "out_of": "101",
+                  "full_name": "Hydreigon Noble Victories (NVI) #79",
+                  "type": "Pokemon",
+                  "color": "Darkness",
+                  "series": "Black & White",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/86239",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Hydreigon+NVI+%2379&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Dragon Majesty",
+                  "card_number": "33",
+                  "set_code": "DRM",
+                  "name": "Hydreigon",
+                  "year": 2018,
+                  "rarity": "Rare Holo",
+                  "out_of": "70",
+                  "full_name": "Hydreigon Dragon Majesty (DRM) #33",
+                  "type": "Pokemon",
+                  "color": "Darkness",
+                  "series": "Sun & Moon",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/175431",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Hydreigon+DRM+%2333&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Phantom Forces",
+                  "card_number": "74",
+                  "set_code": "PHF",
+                  "name": "Hydreigon",
+                  "year": 2014,
+                  "rarity": "Rare Holo",
+                  "set_series_code": "XY4",
+                  "out_of": "119",
+                  "full_name": "Hydreigon Phantom Forces (PHF) #74",
+                  "type": "Pokemon",
+                  "color": "Dragon",
+                  "series": "XY",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/94642",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Hydreigon+PHF+%2374&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "BREAKthrough",
+                  "card_number": "91",
+                  "set_code": "BKT",
+                  "name": "Zoroark",
+                  "year": 2015,
+                  "rarity": "Rare Holo",
+                  "set_series_code": "XY8",
+                  "out_of": "162",
+                  "full_name": "Zoroark BREAKthrough (BKT) #91",
+                  "type": "Pokemon",
+                  "color": "Darkness",
+                  "series": "XY",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/107210",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Zoroark+BKT+%2391&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.16862608,
+                0.69253355,
+                0.7555028,
+                0.8394137,
+                0.8740721
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.9721,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.0279,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "7f342f79-5771-4a5f-99f1-6c843ede9977",
+      "proc_id": "3d2e3029-fa89-4347-b065-b15e49396c06"
+    },
+    "statistics": {
+      "processing time": 1.204028606414795
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.83137392,
+    "alternatives_count": 4,
+    "best_match_name": "Hydreigon",
+    "issues": [],
+    "recommendations": []
+  }
+}

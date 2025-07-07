@@ -1,0 +1,244 @@
+{
+  "timestamp": "20250704_142530",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY5/z/yRcAAeSwCpFoaEbG/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY5/z/yRcAAeSwCpFoaEbG/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "42be1925-34b3-424d-921c-1a541b8b26c0"
+        },
+        "_id": "9fc1f8cc-a429-4ec0-b0ab-e6453d348174",
+        "_width": 292,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              11,
+              5,
+              281,
+              394
+            ],
+            "prob": 0.9397368431091309,
+            "area": 0.8992294520547945,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.99848,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.87352,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.72097,
+                  "name": "Non-Foil",
+                  "id": "2b81d4d0-e908-4e12-aa52-2f613f019bf8"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.99889,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.99831,
+                  "name": "latin",
+                  "id": "f0339837-aa0b-414f-acb8-d47d6ef3b7fa"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.85421,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.9688,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Non-Foil",
+              "rotation_ok",
+              "latin",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "set_code": "CEC",
+                "set": "Cosmic Eclipse",
+                "set_series_code": "SM12",
+                "name": "Guzma & Hala",
+                "series": "Sun & Moon",
+                "type": "Trainer",
+                "year": 2019,
+                "sub_type": "Supporter",
+                "out_of": "236",
+                "rarity": "Uncommon",
+                "card_number": "193",
+                "full_name": "Guzma & Hala Cosmic Eclipse (CEC) #193",
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/201314",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Guzma+%26+Hala+CEC+%23193&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "set_code": "CEC",
+                  "set": "Cosmic Eclipse",
+                  "set_series_code": "SM12",
+                  "name": "Professor Oaks Setup",
+                  "series": "Sun & Moon",
+                  "type": "Trainer",
+                  "year": 2019,
+                  "sub_type": "Supporter",
+                  "out_of": "236",
+                  "rarity": "Uncommon",
+                  "card_number": "201",
+                  "full_name": "Professor Oaks Setup Cosmic Eclipse (CEC) #201",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/201322",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Professor+Oaks+Setup+CEC+%23201&_sacat=2536"
+                  }
+                },
+                {
+                  "set_code": "UPR",
+                  "set": "Ultra Prism",
+                  "set_series_code": "SM5",
+                  "name": "Cynthia",
+                  "series": "Sun & Moon",
+                  "type": "Trainer",
+                  "year": 2018,
+                  "sub_type": "Supporter",
+                  "out_of": "156",
+                  "rarity": "Uncommon",
+                  "card_number": "119",
+                  "full_name": "Cynthia Ultra Prism (UPR) #119",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/157736",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Cynthia+UPR+%23119&_sacat=2536"
+                  }
+                },
+                {
+                  "set_code": "PAR",
+                  "set": "Paradox Rift",
+                  "set_series_code": "sv4",
+                  "name": "Larry",
+                  "series": "Scarlet & Violet",
+                  "type": "Trainer",
+                  "year": 2023,
+                  "sub_type": "Supporter",
+                  "out_of": "182",
+                  "rarity": "Common",
+                  "card_number": "165",
+                  "full_name": "Larry Paradox Rift (PAR) #165",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/523846",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Larry+PAR+%23165&_sacat=2536"
+                  }
+                },
+                {
+                  "set_code": "CES",
+                  "set": "Celestial Storm",
+                  "set_series_code": "SM7",
+                  "name": "Hau",
+                  "series": "Sun & Moon",
+                  "type": "Trainer",
+                  "year": 2018,
+                  "sub_type": "Supporter",
+                  "out_of": "168",
+                  "rarity": "Uncommon",
+                  "card_number": "132",
+                  "full_name": "Hau Celestial Storm (CES) #132",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/170993",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Hau+CES+%23132&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.2904865,
+                0.66505516,
+                0.73636323,
+                0.7720431,
+                0.7934195
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.9688,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.0312,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "42be1925-34b3-424d-921c-1a541b8b26c0",
+      "proc_id": "0e879680-691d-463a-bbd2-30d072a133e7"
+    },
+    "statistics": {
+      "processing time": 1.109572172164917
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.7095135,
+    "alternatives_count": 4,
+    "best_match_name": "Guzma & Hala",
+    "issues": [],
+    "recommendations": []
+  }
+}

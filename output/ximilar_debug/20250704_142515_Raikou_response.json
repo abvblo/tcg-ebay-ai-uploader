@@ -1,0 +1,249 @@
+{
+  "timestamp": "20250704_142515",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY3/z/AtEAAeSwpEhoaEa6/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY3/z/AtEAAeSwpEhoaEa6/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "22b95a52-acea-4c7e-9599-232c58bf6c5a"
+        },
+        "_id": "3fe409d2-4cbe-4b89-8b46-0c046333ffec",
+        "_width": 292,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              12,
+              1,
+              281,
+              398
+            ],
+            "prob": 0.9403750896453857,
+            "area": 0.9143236301369863,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.99277,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.99998,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.91305,
+                  "name": "Non-Foil",
+                  "id": "2b81d4d0-e908-4e12-aa52-2f613f019bf8"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.9978,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.98724,
+                  "name": "latin",
+                  "id": "f0339837-aa0b-414f-acb8-d47d6ef3b7fa"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.85834,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.98216,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Non-Foil",
+              "rotation_ok",
+              "latin",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "set_code": "SLG",
+                "out_of": "73",
+                "card_number": "32",
+                "full_name": "Raikou Shining Legends (SLG) #32",
+                "set": "Shining Legends",
+                "year": 2017,
+                "set_series_code": "SM35",
+                "rarity": "Rare Holo",
+                "type": "Pokemon",
+                "name": "Raikou",
+                "color": "Lightning",
+                "series": "Sun & Moon",
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/146688",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Raikou+SLG+%2332&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "set_code": "PGO",
+                  "out_of": "078",
+                  "card_number": "036",
+                  "full_name": "Onix Pokemon GO (PGO) #036",
+                  "set": "Pok\u00e9mon GO",
+                  "year": 2022,
+                  "set_series_code": "PGO",
+                  "rarity": "Common",
+                  "type": "Pokemon",
+                  "name": "Onix",
+                  "color": "Fighting",
+                  "series": "Sword & Shield",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/276981",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Onix+PGO+%23036&_sacat=2536"
+                  }
+                },
+                {
+                  "set_code": "SVI",
+                  "out_of": "198",
+                  "card_number": "026",
+                  "full_name": "Toedscruel Scarlet & Violet (SVI) #026",
+                  "set": "Scarlet & Violet",
+                  "year": 2023,
+                  "set_series_code": "SV1",
+                  "rarity": "Uncommon",
+                  "type": "Pokemon",
+                  "name": "Toedscruel",
+                  "color": "Grass",
+                  "series": "Scarlet & Violet",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/487864",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Toedscruel+SVI+%23026&_sacat=2536"
+                  }
+                },
+                {
+                  "set_code": "SMP",
+                  "out_of": "",
+                  "card_number": "SM47",
+                  "full_name": "Crabominable Sun & Moon Promos (SMP) #SM47",
+                  "set": "Sun & Moon Promos",
+                  "year": 2017,
+                  "rarity": "Promo",
+                  "type": "Pokemon",
+                  "name": "Crabominable",
+                  "color": "Fighting",
+                  "series": "Sun & Moon",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/139095",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Crabominable+SMP+%23SM47&_sacat=2536"
+                  }
+                },
+                {
+                  "set_code": "OBF",
+                  "out_of": "197",
+                  "card_number": "067",
+                  "full_name": "Tynamo Obsidian Flames (OBF) #067",
+                  "set": "Obsidian Flames",
+                  "year": 2023,
+                  "set_series_code": "sv3",
+                  "rarity": "Common",
+                  "type": "Pokemon",
+                  "name": "Tynamo",
+                  "color": "Lightning",
+                  "series": "Scarlet & Violet",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/509832",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Tynamo+OBF+%23067&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.55652314,
+                0.71777326,
+                0.7437865,
+                0.8206853,
+                0.8233162
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.98216,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.01784,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "22b95a52-acea-4c7e-9599-232c58bf6c5a",
+      "proc_id": "3e353946-f954-4314-a041-6c4c1e3aec77"
+    },
+    "statistics": {
+      "processing time": 0.8263990879058838
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.44347686,
+    "alternatives_count": 4,
+    "best_match_name": "Raikou",
+    "issues": [
+      "Very low confidence: 44.35%",
+      "Best match shares no words with alternatives"
+    ],
+    "recommendations": [
+      "Consider manual identification",
+      "Likely misidentification - review alternatives"
+    ]
+  }
+}

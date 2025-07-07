@@ -1,0 +1,250 @@
+{
+  "timestamp": "20250704_142501",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTcw/z/j44AAeSwZTVoaEap/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTcw/z/j44AAeSwZTVoaEap/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "09ca09d8-af79-4d18-bbd5-2dbfd9f9ae7b"
+        },
+        "_id": "c5290ca9-8a76-4e85-b493-7b76f7f96b5a",
+        "_width": 293,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              14,
+              6,
+              279,
+              395
+            ],
+            "prob": 0.9331988096237183,
+            "area": 0.8795648464163822,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.9943,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.99918,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.67928,
+                  "name": "Non-Foil",
+                  "id": "2b81d4d0-e908-4e12-aa52-2f613f019bf8"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.99675,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.98666,
+                  "name": "latin",
+                  "id": "f0339837-aa0b-414f-acb8-d47d6ef3b7fa"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.79224,
+                  "name": "baseset",
+                  "id": "4694fe52-7935-4294-be61-6d5ac7ae0326"
+                }
+              ],
+              "Baseset": [
+                {
+                  "prob": 0.99718,
+                  "name": "unlimited",
+                  "id": "9bf0470b-3b8b-4d34-9654-8df49bb4a5f1"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.98226,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Non-Foil",
+              "rotation_ok",
+              "latin",
+              "baseset",
+              "unlimited"
+            ],
+            "_identification": {
+              "best_match": {
+                "set": "Evolutions",
+                "rarity": "Rare Holo",
+                "full_name": "Mew Evolutions (EVO) #53",
+                "out_of": "108",
+                "type": "Pokemon",
+                "set_series_code": "XY12",
+                "card_number": "53",
+                "name": "Mew",
+                "set_code": "EVO",
+                "color": "Psychic",
+                "series": "XY",
+                "year": 2016,
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/124066",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Mew+EVO+%2353&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "set": "Wizards Black Star Promos",
+                  "rarity": "Promo",
+                  "full_name": "Mew Wizards Black Star Promos #47",
+                  "out_of": "",
+                  "type": "Pokemon",
+                  "card_number": "47",
+                  "name": "Mew",
+                  "color": "Psychic",
+                  "series": "Promos",
+                  "year": 2002,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/87397",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Mew++%2347&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Fates Collide",
+                  "rarity": "Common",
+                  "full_name": "Carbink Fates Collide (FCO) #50",
+                  "out_of": "124",
+                  "type": "Pokemon",
+                  "set_series_code": "XY10",
+                  "card_number": "50",
+                  "name": "Carbink",
+                  "set_code": "FCO",
+                  "color": "Fighting",
+                  "series": "XY",
+                  "year": 2016,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/117810",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Carbink+FCO+%2350&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "BREAKpoint",
+                  "rarity": "Rare Holo",
+                  "full_name": "Aegislash BREAKpoint (BKP) #62",
+                  "out_of": "122",
+                  "type": "Pokemon",
+                  "set_series_code": "XY9",
+                  "card_number": "62",
+                  "name": "Aegislash",
+                  "set_code": "BKP",
+                  "color": "Psychic",
+                  "series": "XY",
+                  "year": 2016,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/111603",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Aegislash+BKP+%2362&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Lost Thunder",
+                  "rarity": "Rare",
+                  "full_name": "Donphan Lost Thunder (LOT) #112",
+                  "out_of": "214",
+                  "type": "Pokemon",
+                  "set_series_code": "SM8",
+                  "card_number": "112",
+                  "name": "Donphan",
+                  "set_code": "LOT",
+                  "color": "Fighting",
+                  "series": "Sun & Moon",
+                  "year": 2018,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/178925",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Donphan+LOT+%23112&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.1414919,
+                0.41909552,
+                0.65366215,
+                0.7733962,
+                0.7803066
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.98226,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.01774,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "09ca09d8-af79-4d18-bbd5-2dbfd9f9ae7b",
+      "proc_id": "0455de15-59be-43d8-9f9b-800a0ad624e2"
+    },
+    "statistics": {
+      "processing time": 1.304839849472046
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.8585081,
+    "alternatives_count": 4,
+    "best_match_name": "Mew",
+    "issues": [],
+    "recommendations": []
+  }
+}

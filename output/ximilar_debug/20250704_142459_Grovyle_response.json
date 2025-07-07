@@ -1,0 +1,250 @@
+{
+  "timestamp": "20250704_142459",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY4/z/niwAAeSwMTRoaEap/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY4/z/niwAAeSwMTRoaEap/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "841a11f5-8aac-4ed6-9bee-be5681222090"
+        },
+        "_id": "10aef3f7-8eba-4911-8b7d-8c7777c523fd",
+        "_width": 292,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              12,
+              2,
+              280,
+              396
+            ],
+            "prob": 0.9415146708488464,
+            "area": 0.9040410958904109,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.99442,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.99961,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.99815,
+                  "name": "Reverse Holo",
+                  "id": "1084300f-10b7-409e-8fc4-e8a42775995d"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.99554,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.99758,
+                  "name": "latin",
+                  "id": "f0339837-aa0b-414f-acb8-d47d6ef3b7fa"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.60984,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.97458,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Reverse Holo",
+              "rotation_ok",
+              "latin",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "set": "Lost Thunder",
+                "rarity": "Uncommon",
+                "full_name": "Grovyle Lost Thunder (LOT) #21",
+                "out_of": "214",
+                "type": "Pokemon",
+                "set_series_code": "SM8",
+                "card_number": "21",
+                "name": "Grovyle",
+                "set_code": "LOT",
+                "color": "Grass",
+                "series": "Sun & Moon",
+                "year": 2018,
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/178820",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Grovyle+LOT+%2321&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "set": "Shining Fates",
+                  "rarity": "Rare",
+                  "full_name": "Celebi Shining Fates (SHF) #003",
+                  "out_of": "072",
+                  "type": "Pokemon",
+                  "set_series_code": "SWSH45SV",
+                  "card_number": "003",
+                  "name": "Celebi",
+                  "set_code": "SHF",
+                  "color": "Grass",
+                  "series": "Sword & Shield",
+                  "year": 2021,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/232352",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Celebi+SHF+%23003&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Mysterious Treasures",
+                  "rarity": "Rare",
+                  "full_name": "Manectric Mysterious Treasures (MT) #28",
+                  "out_of": "123",
+                  "type": "Pokemon",
+                  "set_series_code": "DP2",
+                  "card_number": "28",
+                  "name": "Manectric",
+                  "set_code": "MT",
+                  "color": "Lightning",
+                  "series": "Diamond & Pearl",
+                  "year": 2007,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/87160",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Manectric+MT+%2328&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Paradox Rift",
+                  "rarity": "Uncommon",
+                  "full_name": "Simisage Paradox Rift (PAR) #005",
+                  "out_of": "182",
+                  "type": "Pokemon",
+                  "set_series_code": "sv4",
+                  "card_number": "005",
+                  "name": "Simisage",
+                  "set_code": "PAR",
+                  "color": "Grass",
+                  "series": "Scarlet & Violet",
+                  "year": 2023,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/523604",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Simisage+PAR+%23005&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Unified Minds",
+                  "rarity": "Common",
+                  "full_name": "Riolu Unified Minds (UNM) #115",
+                  "out_of": "236",
+                  "type": "Pokemon",
+                  "set_series_code": "SM11",
+                  "card_number": "115",
+                  "name": "Riolu",
+                  "set_code": "UNM",
+                  "color": "Fighting",
+                  "series": "Sun & Moon",
+                  "year": 2019,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/195069",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Riolu+UNM+%23115&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.30799997,
+                0.8550393,
+                0.86654514,
+                0.8891945,
+                0.9266952
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.97458,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.02542,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "841a11f5-8aac-4ed6-9bee-be5681222090",
+      "proc_id": "0455de15-59be-43d8-9f9b-800a0ad624e2"
+    },
+    "statistics": {
+      "processing time": 1.0786077976226807
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.69200003,
+    "alternatives_count": 4,
+    "best_match_name": "Grovyle",
+    "issues": [
+      "Low confidence: 69.20%",
+      "Best match shares no words with alternatives"
+    ],
+    "recommendations": [
+      "Check alternatives carefully",
+      "Likely misidentification - review alternatives"
+    ]
+  }
+}

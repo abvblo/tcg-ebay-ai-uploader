@@ -1,0 +1,248 @@
+{
+  "timestamp": "20250704_142458",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY2/z/n1oAAeSwNrZoaEan/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY2/z/n1oAAeSwNrZoaEan/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "527e570e-6e49-487d-8770-293558d3e379"
+        },
+        "_id": "42a042b4-85d6-42cb-9787-5e91d0db5274",
+        "_width": 292,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              6,
+              15,
+              283,
+              394
+            ],
+            "prob": 0.9294825792312622,
+            "area": 0.8988270547945205,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.99421,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.99546,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.95536,
+                  "name": "Other Rare/Promo",
+                  "id": "8624dea8-1361-404e-b872-797f5952c157"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.99689,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.99212,
+                  "name": "latin",
+                  "id": "f0339837-aa0b-414f-acb8-d47d6ef3b7fa"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.99104,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.96881,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Other Rare/Promo",
+              "rotation_ok",
+              "latin",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "set": "Shining Fates",
+                "rarity": "Ultra Rare",
+                "full_name": "Cara Liss Shining Fates (SHF) #067",
+                "out_of": "072",
+                "type": "Trainer",
+                "set_series_code": "SWSH45SV",
+                "card_number": "067",
+                "name": "Cara Liss",
+                "set_code": "SHF",
+                "series": "Sword & Shield",
+                "year": 2021,
+                "sub_type": "Supporter",
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/232537",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Cara+Liss+SHF+%23067&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "set": "Lost Origin",
+                  "rarity": "Rainbow Rare",
+                  "full_name": "Colresss Experiment Lost Origin (LOR) #205",
+                  "out_of": "196",
+                  "type": "Trainer",
+                  "set_series_code": "SWSH11",
+                  "card_number": "205",
+                  "name": "Colresss Experiment",
+                  "set_code": "LOR",
+                  "series": "Sword & Shield",
+                  "year": 2022,
+                  "sub_type": "Supporter",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/284160",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Colresss+Experiment+LOR+%23205&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "151",
+                  "rarity": "Ultra Rare",
+                  "full_name": "Erikas Invitation 151 (MEW) #196",
+                  "out_of": "165",
+                  "type": "Trainer",
+                  "set_series_code": "sv3-5",
+                  "card_number": "196",
+                  "name": "Erikas Invitation",
+                  "set_code": "MEW",
+                  "series": "Scarlet & Violet",
+                  "year": 2023,
+                  "sub_type": "Supporter",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/517176",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Erikas+Invitation+MEW+%23196&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Shrouded Fable",
+                  "rarity": "Ultra Rare",
+                  "full_name": "Xerosics Machinations Shrouded Fable (SFA) #089",
+                  "out_of": "064",
+                  "type": "Trainer",
+                  "set_series_code": "sv6-5",
+                  "card_number": "089",
+                  "name": "Xerosics Machinations",
+                  "set_code": "SFA",
+                  "series": "Scarlet & Violet",
+                  "year": 2024,
+                  "sub_type": "Supporter",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/560400",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Xerosics+Machinations+SFA+%23089&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Surging Sparks",
+                  "rarity": "Ultra Rare",
+                  "full_name": "Drasna Surging Sparks (SSP) #231",
+                  "out_of": "191",
+                  "set_series_code": "sv7",
+                  "card_number": "231",
+                  "name": "Drasna",
+                  "set_code": "SSP",
+                  "series": "Scarlet & Violet",
+                  "year": 2024,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/589922",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Drasna+SSP+%23231&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.49742013,
+                0.7795328,
+                0.832888,
+                0.84045756,
+                0.8540651
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.96881,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.03119,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "527e570e-6e49-487d-8770-293558d3e379",
+      "proc_id": "0455de15-59be-43d8-9f9b-800a0ad624e2"
+    },
+    "statistics": {
+      "processing time": 1.302858591079712
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.5025798699999999,
+    "alternatives_count": 4,
+    "best_match_name": "Cara Liss",
+    "issues": [
+      "Low confidence: 50.26%",
+      "Best match shares no words with alternatives"
+    ],
+    "recommendations": [
+      "Check alternatives carefully",
+      "Likely misidentification - review alternatives"
+    ]
+  }
+}

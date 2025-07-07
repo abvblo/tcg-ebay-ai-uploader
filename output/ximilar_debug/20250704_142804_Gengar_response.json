@@ -1,0 +1,241 @@
+{
+  "timestamp": "20250704_142804",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY5/z/qFoAAeSwN-ZoaEdh/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY5/z/qFoAAeSwN-ZoaEdh/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "8c66758f-d14b-4ea3-9a21-a019d80cdf89"
+        },
+        "_id": "fd4bd2b7-c1c0-4384-a1a9-96a1f884a914",
+        "_width": 292,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              5,
+              5,
+              283,
+              395
+            ],
+            "prob": 0.9470357298851013,
+            "area": 0.9282534246575342,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.99559,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.98698,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.69023,
+                  "name": "Other Rare/Promo",
+                  "id": "8624dea8-1361-404e-b872-797f5952c157"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.99553,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.99254,
+                  "name": "latin",
+                  "id": "f0339837-aa0b-414f-acb8-d47d6ef3b7fa"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.89279,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.96654,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Other Rare/Promo",
+              "rotation_ok",
+              "latin",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "set": "Lost Origin",
+                "series": "Sword & Shield",
+                "rarity": "Trainer Gallery Holo Rare",
+                "type": "Pokemon",
+                "color": "Psychic",
+                "out_of": "TG30",
+                "name": "Gengar",
+                "set_series_code": "SWSH11",
+                "card_number": "TG06",
+                "full_name": "Gengar Lost Origin (LOR) #TG06",
+                "set_code": "LOR",
+                "year": 2022,
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/284266",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Gengar+LOR+%23TG06&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "set": "Twilight Masquerade",
+                  "series": "Scarlet & Violet",
+                  "rarity": "Illustration Rare",
+                  "type": "Pokemon",
+                  "color": "Dragon",
+                  "out_of": "167",
+                  "name": "Tatsugiri",
+                  "set_series_code": "sv6",
+                  "card_number": "186",
+                  "full_name": "Tatsugiri Twilight Masquerade (TWM) #186",
+                  "set_code": "TWM",
+                  "year": 2024,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/550230",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Tatsugiri+TWM+%23186&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Destined Rivals",
+                  "series": "Scarlet & Violet Series",
+                  "rarity": "Special Illustration Rare",
+                  "out_of": "182",
+                  "name": "Team Rocket's Crobat ex",
+                  "card_number": "234",
+                  "full_name": "Team Rocket's Crobat ex Destined Rivals (DRI) #234",
+                  "set_code": "DRI",
+                  "year": 2025,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/633034",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Team+Rocket%27s+Crobat+ex+DRI+%23234&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Silver Tempest",
+                  "series": "Sword & Shield",
+                  "rarity": "Trainer Gallery Holo Rare",
+                  "type": "Pokemon",
+                  "color": "Lightning",
+                  "out_of": "TG30",
+                  "name": "Flaaffy",
+                  "set_series_code": "SWSH12",
+                  "card_number": "TG03",
+                  "full_name": "Flaaffy Silver Tempest (SIT) #TG03",
+                  "set_code": "SIT",
+                  "year": 2022,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/452017",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Flaaffy+SIT+%23TG03&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Paldea Evolved",
+                  "series": "Scarlet & Violet",
+                  "rarity": "Illustration Rare",
+                  "type": "Pokemon",
+                  "color": "Fighting",
+                  "out_of": "193",
+                  "name": "Nacli",
+                  "set_series_code": "sv2",
+                  "card_number": "220",
+                  "full_name": "Nacli Paldea Evolved (PAL) #220",
+                  "set_code": "PAL",
+                  "year": 2023,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/497623",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Nacli+PAL+%23220&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.14370991,
+                0.7642857,
+                0.8137441,
+                0.8206744,
+                0.86233675
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.96654,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.03346,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "8c66758f-d14b-4ea3-9a21-a019d80cdf89",
+      "proc_id": "fcfab150-7c97-49cd-aa43-c749cbf8a38c"
+    },
+    "statistics": {
+      "processing time": 0.853217601776123
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.85629009,
+    "alternatives_count": 4,
+    "best_match_name": "Gengar",
+    "issues": [],
+    "recommendations": []
+  }
+}

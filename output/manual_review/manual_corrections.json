@@ -1,0 +1,15 @@
+{
+  "test_image.jpg": {
+    "name": "Salamence",
+    "set_name": "Dragon Vault",
+    "number": "8/20",
+    "rarity": "Rare Holo",
+    "timestamp": "2025-07-03T13:30:19.209290"
+  },
+  "test_card.jpg": {
+    "name": "Correct Card",
+    "set_name": "Correct Set",
+    "number": "123/456",
+    "timestamp": "2025-07-03T13:31:53.318566"
+  }
+}

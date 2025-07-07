@@ -1,0 +1,246 @@
+{
+  "timestamp": "20250704_142704",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTc2/z/c8AAAeSwlwJoaEcl/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTc2/z/c8AAAeSwlwJoaEcl/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "05faca6d-744a-4f5c-9986-a869bcacce55"
+        },
+        "_id": "888b615e-ff0e-4d4a-867e-852e5bfc6f1b",
+        "_width": 294,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              11,
+              1,
+              281,
+              396
+            ],
+            "prob": 0.937887966632843,
+            "area": 0.9068877551020408,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.99742,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.99986,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.93723,
+                  "name": "Non-Foil",
+                  "id": "2b81d4d0-e908-4e12-aa52-2f613f019bf8"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.99834,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.97121,
+                  "name": "latin",
+                  "id": "f0339837-aa0b-414f-acb8-d47d6ef3b7fa"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.98873,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.97769,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Non-Foil",
+              "rotation_ok",
+              "latin",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "set": "McDonald's Collection 2011",
+                "series": "Black & White",
+                "type": "Pokemon",
+                "color": "Grass",
+                "out_of": "12",
+                "name": "Maractus",
+                "card_number": "2",
+                "full_name": "Maractus McDonalds Collection 2011 (MCD11) #2",
+                "set_code": "MCD11",
+                "year": 2011,
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/87189",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Maractus+MCD11+%232&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "set": "Black & White",
+                  "series": "Black & White",
+                  "rarity": "Uncommon",
+                  "type": "Pokemon",
+                  "color": "Grass",
+                  "out_of": "114",
+                  "name": "Maractus",
+                  "set_series_code": "BW1",
+                  "card_number": "11",
+                  "full_name": "Maractus Black & White (BLW) #11",
+                  "set_code": "BLW",
+                  "year": 2011,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/87187",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Maractus+BLW+%2311&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Dragons Exalted",
+                  "series": "Black & White",
+                  "rarity": "Uncommon",
+                  "type": "Pokemon",
+                  "color": "Lightning",
+                  "out_of": "124",
+                  "name": "Flaaffy",
+                  "set_series_code": "BW6",
+                  "card_number": "39",
+                  "full_name": "Flaaffy Dragons Exalted (DRX) #39",
+                  "set_code": "DRX",
+                  "year": 2012,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/85486",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Flaaffy+DRX+%2339&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "BREAKthrough",
+                  "series": "XY",
+                  "rarity": "Rare",
+                  "type": "Pokemon",
+                  "color": "Fairy",
+                  "out_of": "162",
+                  "name": "Aromatisse",
+                  "set_series_code": "XY8",
+                  "card_number": "106",
+                  "full_name": "Aromatisse BREAKthrough (BKT) #106",
+                  "set_code": "BKT",
+                  "year": 2015,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/107225",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Aromatisse+BKT+%23106&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Furious Fists",
+                  "series": "XY",
+                  "rarity": "Common",
+                  "type": "Pokemon",
+                  "color": "Psychic",
+                  "out_of": "111",
+                  "name": "Gothita",
+                  "set_series_code": "XY3",
+                  "card_number": "39",
+                  "full_name": "Gothita Furious Fists (FFI) #39",
+                  "set_code": "FFI",
+                  "year": 2014,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/92214",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Gothita+FFI+%2339&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.5189602,
+                0.6116282,
+                0.7977423,
+                0.83321655,
+                0.8354189
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.97769,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.02231,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "05faca6d-744a-4f5c-9986-a869bcacce55",
+      "proc_id": "fcfab150-7c97-49cd-aa43-c749cbf8a38c"
+    },
+    "statistics": {
+      "processing time": 1.496833324432373
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.4810398,
+    "alternatives_count": 4,
+    "best_match_name": "Maractus",
+    "issues": [
+      "Very low confidence: 48.10%"
+    ],
+    "recommendations": [
+      "Consider manual identification"
+    ]
+  }
+}

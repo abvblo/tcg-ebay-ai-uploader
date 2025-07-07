@@ -1,0 +1,242 @@
+{
+  "timestamp": "20250704_142424",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY3/z/31IAAeSw2~loaEaG/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY3/z/31IAAeSw2~loaEaG/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "bcfcb809-2891-4e4d-b084-8cd7a511b2cf"
+        },
+        "_id": "c2b0115e-346c-4931-90de-7d111db0ae40",
+        "_width": 292,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              13,
+              3,
+              285,
+              390
+            ],
+            "prob": 0.9255537390708923,
+            "area": 0.9012328767123288,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.99612,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.99913,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.77721,
+                  "name": "Non-Foil",
+                  "id": "2b81d4d0-e908-4e12-aa52-2f613f019bf8"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.99947,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.98853,
+                  "name": "russian",
+                  "id": "633c0fe9-75a1-4f9e-85ce-c32bf0635cb0"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.89853,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.95214,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Non-Foil",
+              "rotation_ok",
+              "russian",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "card_number": "8",
+                "type": "Pokemon",
+                "out_of": "20",
+                "set": "Dragon Vault",
+                "year": 2012,
+                "name": "Salamence",
+                "color": "Dragon",
+                "series": "Black & White",
+                "set_code": "DRV",
+                "full_name": "Salamence Dragon Vault (DRV) #8",
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/88900",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Salamence+DRV+%238&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "card_number": "46",
+                  "type": "Pokemon",
+                  "set_series_code": "BW6",
+                  "out_of": "124",
+                  "rarity": "Rare Holo",
+                  "set": "Dragons Exalted",
+                  "year": 2012,
+                  "name": "Mew-EX",
+                  "color": "Psychic",
+                  "series": "Black & White",
+                  "set_code": "DRX",
+                  "full_name": "Mew-EX Dragons Exalted (DRX) #46",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/87411",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Mew-EX+DRX+%2346&_sacat=2536"
+                  }
+                },
+                {
+                  "card_number": "137",
+                  "type": "Pokemon",
+                  "set_series_code": "SM3",
+                  "out_of": "147",
+                  "rarity": "Ultra Rare",
+                  "set": "Burning Shadows",
+                  "year": 2017,
+                  "name": "Marshadow-GX",
+                  "color": "Fighting",
+                  "series": "Sun & Moon",
+                  "set_code": "BUS",
+                  "full_name": "Marshadow-GX Burning Shadows (BUS) #137",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/138567",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Marshadow-GX+BUS+%23137&_sacat=2536"
+                  }
+                },
+                {
+                  "card_number": "164",
+                  "type": "Pokemon",
+                  "set_series_code": "SM9",
+                  "out_of": "181",
+                  "rarity": "Ultra Rare",
+                  "set": "Team Up",
+                  "year": 2019,
+                  "name": "Gengar & Mimikyu-GX",
+                  "color": "Psychic",
+                  "series": "Sun & Moon",
+                  "set_code": "TEU",
+                  "full_name": "Gengar & Mimikyu-GX Team Up (TEU) #164",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/183829",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Gengar+%26+Mimikyu-GX+TEU+%23164&_sacat=2536"
+                  }
+                },
+                {
+                  "card_number": "184",
+                  "type": "Pokemon",
+                  "set_series_code": "SWSH3",
+                  "out_of": "189",
+                  "rarity": "Ultra Rare",
+                  "set": "Darkness Ablaze",
+                  "year": 2020,
+                  "name": "Galarian Stunfisk V",
+                  "color": "Metal",
+                  "series": "Sword & Shield",
+                  "set_code": "DAA",
+                  "full_name": "Galarian Stunfisk V Darkness Ablaze (DAA) #184",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/219306",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Galarian+Stunfisk+V+DAA+%23184&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.24985492,
+                0.84492725,
+                0.85096925,
+                0.86713743,
+                0.87970597
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.95214,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.04786,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "bcfcb809-2891-4e4d-b084-8cd7a511b2cf",
+      "proc_id": "3301d62e-d3fc-42ad-916a-ec862ea326bb"
+    },
+    "statistics": {
+      "processing time": 0.7629721164703369
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.75014508,
+    "alternatives_count": 4,
+    "best_match_name": "Salamence",
+    "issues": [],
+    "recommendations": []
+  }
+}

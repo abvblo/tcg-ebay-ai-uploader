@@ -1,0 +1,241 @@
+{
+  "timestamp": "20250704_142802",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY5/z/gq8AAeSw14BoaEdg/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTY5/z/gq8AAeSw14BoaEdg/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "c47bae6e-fa19-4d1b-85ed-cce7f666cfe4"
+        },
+        "_id": "b23364ae-9b9c-4e21-b959-30916bd202e5",
+        "_width": 292,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              14,
+              3,
+              281,
+              396
+            ],
+            "prob": 0.8642173409461975,
+            "area": 0.8983818493150685,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.99768,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.98551,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.56352,
+                  "name": "Hyper Rare/Rare Secret/Secret Rare",
+                  "id": "4ae94cee-0e40-46e4-98b0-aee7b4de78e4"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.77098,
+                  "name": "latin",
+                  "id": "f0339837-aa0b-414f-acb8-d47d6ef3b7fa"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.91014,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.98903,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Hyper Rare/Rare Secret/Secret Rare",
+              "latin",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "rarity": "Promo",
+                "out_of": "",
+                "type": "Pokemon",
+                "card_number": "XY155",
+                "full_name": "Wobbuffet BREAK XY Promos (XYP) #XY155",
+                "series": "XY",
+                "set_code": "XYP",
+                "color": "Psychic",
+                "year": 2016,
+                "name": "Wobbuffet BREAK",
+                "set": "XY Promos",
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/121963",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Wobbuffet+BREAK+XYP+%23XY155&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "rarity": "Trainer Gallery Ultra Rare",
+                  "out_of": "TG30",
+                  "type": "Trainer",
+                  "card_number": "TG23",
+                  "full_name": "Friends in Galar Silver Tempest (SIT) #TG23",
+                  "series": "Sword & Shield",
+                  "sub_type": "Supporter",
+                  "set_series_code": "SWSH12",
+                  "set_code": "SIT",
+                  "year": 2022,
+                  "name": "Friends in Galar",
+                  "set": "Silver Tempest",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/452039",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Friends+in+Galar+SIT+%23TG23&_sacat=2536"
+                  }
+                },
+                {
+                  "rarity": "Ultra Rare",
+                  "out_of": "162",
+                  "type": "Trainer",
+                  "card_number": "199",
+                  "full_name": "Eri Temporal Forces (TEF) #199",
+                  "series": "Scarlet & Violet",
+                  "sub_type": "Supporter",
+                  "set_series_code": "sv5",
+                  "set_code": "TEF",
+                  "year": 2024,
+                  "name": "Eri",
+                  "set": "Temporal Forces",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/542920",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Eri+TEF+%23199&_sacat=2536"
+                  }
+                },
+                {
+                  "rarity": "Special Illustration Rare",
+                  "out_of": "131",
+                  "card_number": "164",
+                  "full_name": "Gholdengo ex Prismatic Evolutions (PRE) #164",
+                  "series": "Scarlet & Violet Series",
+                  "set_series_code": "sv7",
+                  "set_code": "PRE",
+                  "year": 2025,
+                  "name": "Gholdengo ex",
+                  "set": "Prismatic Evolutions",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/610519",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Gholdengo+ex+PRE+%23164&_sacat=2536"
+                  }
+                },
+                {
+                  "rarity": "Ultra Rare",
+                  "out_of": "196",
+                  "type": "Pokemon",
+                  "card_number": "186",
+                  "full_name": "Giratina V Lost Origin (LOR) #186",
+                  "series": "Sword & Shield",
+                  "set_series_code": "SWSH11",
+                  "set_code": "LOR",
+                  "color": "Dragon",
+                  "year": 2022,
+                  "name": "Giratina V",
+                  "set": "Lost Origin",
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/284137",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Giratina+V+LOR+%23186&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.68700296,
+                0.8565504,
+                0.91348654,
+                0.914753,
+                0.9468234
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.98903,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.01097,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "c47bae6e-fa19-4d1b-85ed-cce7f666cfe4",
+      "proc_id": "808260d3-f9a8-4328-88d7-311b040b2a10"
+    },
+    "statistics": {
+      "processing time": 1.0182361602783203
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.31299703999999995,
+    "alternatives_count": 4,
+    "best_match_name": "Wobbuffet BREAK",
+    "issues": [
+      "Very low confidence: 31.30%",
+      "Best match shares no words with alternatives",
+      "Image rotation issue: None"
+    ],
+    "recommendations": [
+      "Consider manual identification",
+      "Likely misidentification - review alternatives",
+      "Consider rotating image"
+    ]
+  }
+}

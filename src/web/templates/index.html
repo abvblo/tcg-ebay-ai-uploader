@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Card Search</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+        }
+        
+        .search-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        #searchInput {
+            flex: 1;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        
+        #searchInput:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        
+        .search-button {
+            padding: 12px 30px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .results-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card-image-container {
+            position: relative;
+            padding-bottom: 140%;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+        
+        .card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+        
+        .card-info {
+            padding: 15px;
+        }
+        
+        .card-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .card-details {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 3px;
+        }
+        
+        .card-types {
+            display: flex;
+            gap: 5px;
+            margin-top: 8px;
+        }
+        
+        .type-badge {
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .type-fire { background-color: #F08030; }
+        .type-water { background-color: #6890F0; }
+        .type-grass { background-color: #78C850; }
+        .type-electric { background-color: #F8D030; }
+        .type-psychic { background-color: #F85888; }
+        .type-fighting { background-color: #C03028; }
+        .type-dark { background-color: #705848; }
+        .type-steel { background-color: #B8B8D0; }
+        .type-fairy { background-color: #EE99AC; }
+        .type-dragon { background-color: #7038F8; }
+        .type-normal { background-color: #A8A878; }
+        .type-ghost { background-color: #705898; }
+        .type-rock { background-color: #B8A038; }
+        .type-ground { background-color: #E0C068; }
+        .type-poison { background-color: #A040A0; }
+        .type-flying { background-color: #A890F0; }
+        .type-bug { background-color: #A8B820; }
+        .type-ice { background-color: #98D8D8; }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .pagination button {
+            padding: 8px 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .pagination button:hover:not(:disabled) {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagination .page-info {
+            padding: 0 15px;
+            color: #555;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 20px;
+            color: #e74c3c;
+            background-color: #ffe6e6;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7f8c8d;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 50px auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #aaa;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+        
+        .card-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .card-detail-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .card-detail-info h2 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .detail-section {
+            margin-bottom: 20px;
+        }
+        
+        .detail-section h3 {
+            margin-bottom: 10px;
+            color: #34495e;
+            font-size: 18px;
+        }
+        
+        .attack {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .attack-name {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .attack-damage {
+            float: right;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .attack-text {
+            margin-top: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            
+            .card-detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Pokemon Card Database</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search for Pokemon cards..." autocomplete="off">
+                <button class="search-button" onclick="searchCards()">Search</button>
+            </div>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="setFilter">Set</label>
+                    <select id="setFilter">
+                        <option value="">All Sets</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="typeFilter">Type</label>
+                    <select id="typeFilter">
+                        <option value="">All Types</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="rarityFilter">Rarity</label>
+                    <select id="rarityFilter">
+                        <option value="">All Rarities</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group" id="editionFilterGroup" style="display: none;">
+                    <label for="editionFilter">Edition</label>
+                    <select id="editionFilter">
+                        <option value="unlimited">Unlimited</option>
+                        <option value="1st">1st Edition</option>
+                        <option value="shadowless">Shadowless</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="characteristicsFilter">Special Characteristics</label>
+                    <select id="characteristicsFilter">
+                        <option value="">All Cards</option>
+                        <option value="holo">Holo</option>
+                        <option value="reverse">Reverse Holo</option>
+                        <option value="full-art">Full Art</option>
+                        <option value="secret">Secret Rare</option>
+                        <option value="rainbow">Rainbow Rare</option>
+                        <option value="gold">Gold</option>
+                        <option value="shining">Shining</option>
+                        <option value="stamped">Stamped</option>
+                        <option value="prerelease">Pre-release</option>
+                        <option value="staff">Staff</option>
+                        <option value="signed">Signed</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sortBy">Sort By</label>
+                    <select id="sortBy">
+                        <option value="name">Card Name (A-Z)</option>
+                        <option value="name_desc">Card Name (Z-A)</option>
+                        <option value="number">Card Number (Low to High)</option>
+                        <option value="number_desc">Card Number (High to Low)</option>
+                        <option value="hp">HP (Low to High)</option>
+                        <option value="hp_desc">HP (High to Low)</option>
+                        <option value="set">Release Date (New to Old)</option>
+                        <option value="set_old">Release Date (Old to New)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultsInfo" class="results-info" style="display: none;">
+            <span id="resultCount"></span>
+            <span id="pageInfo"></span>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            Loading cards...
+        </div>
+
+        <div id="error" class="error" style="display: none;"></div>
+
+        <div id="cardGrid" class="card-grid"></div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            No cards found. Try adjusting your search criteria.
+        </div>
+
+        <div id="loadingMore" class="loading" style="display: none;">
+            Loading more cards...
+        </div>
+    </div>
+
+    <div id="cardModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let totalPages = 1;
+        let currentFilters = {};
+        let isLoading = false;
+        let hasMoreResults = true;
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFilters();
+            searchCards();
+            
+            // Add enter key support for search
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchCards(1, true);
+                }
+            });
+            
+            // Add change listeners to filters
+            const filterElements = ['setFilter', 'typeFilter', 'rarityFilter', 'editionFilter', 'characteristicsFilter', 'sortBy'];
+            filterElements.forEach(id => {
+                document.getElementById(id).addEventListener('change', () => {
+                    // Special handling for set filter to show/hide edition filter
+                    if (id === 'setFilter') {
+                        handleSetFilterChange();
+                    }
+                    searchCards(1, true);
+                });
+            });
+            
+            // Infinite scroll listener
+            window.addEventListener('scroll', () => {
+                if (isLoading || !hasMoreResults) return;
+                
+                const scrollHeight = document.documentElement.scrollHeight;
+                const scrollTop = document.documentElement.scrollTop;
+                const clientHeight = document.documentElement.clientHeight;
+                
+                // Load more when user is 200px from bottom
+                if (scrollTop + clientHeight >= scrollHeight - 200) {
+                    loadMoreCards();
+                }
+            });
+        });
+
+        // Sets that have edition variants (1st Edition, Shadowless, Unlimited)
+        // Currently only Base Set has proper image support for all variants
+        const SETS_WITH_EDITIONS = ['Base Set'];
+        
+        function handleSetFilterChange() {
+            const selectedSet = document.getElementById('setFilter').value;
+            const editionFilterGroup = document.getElementById('editionFilterGroup');
+            const editionFilter = document.getElementById('editionFilter');
+            
+            if (SETS_WITH_EDITIONS.includes(selectedSet)) {
+                editionFilterGroup.style.display = 'flex';
+                // Set default to unlimited when showing edition filter
+                if (!editionFilter.value) {
+                    editionFilter.value = 'unlimited';
+                }
+            } else {
+                editionFilterGroup.style.display = 'none';
+                // Reset edition filter when hiding it
+                editionFilter.value = '';
+            }
+        }
+
+        async function loadFilters() {
+            try {
+                const response = await fetch('/api/filters');
+                const data = await response.json();
+                
+                // Populate set filter
+                const setFilter = document.getElementById('setFilter');
+                data.sets.forEach(set => {
+                    const option = document.createElement('option');
+                    option.value = set.name;
+                    option.textContent = `${set.name} (${set.count})`;
+                    setFilter.appendChild(option);
+                });
+                
+                // Populate type filter
+                const typeFilter = document.getElementById('typeFilter');
+                data.types.forEach(type => {
+                    const option = document.createElement('option');
+                    option.value = type.name;
+                    option.textContent = `${type.name} (${type.count})`;
+                    typeFilter.appendChild(option);
+                });
+                
+                // Populate rarity filter
+                const rarityFilter = document.getElementById('rarityFilter');
+                data.rarities.forEach(rarity => {
+                    const option = document.createElement('option');
+                    option.value = rarity.name;
+                    option.textContent = `${rarity.name} (${rarity.count})`;
+                    rarityFilter.appendChild(option);
+                });
+                
+                // HP range removed - no longer needed
+                
+            } catch (error) {
+                console.error('Error loading filters:', error);
+            }
+        }
+
+        async function searchCards(page = 1, clearResults = false) {
+            // Make sure page is a number, not an event object
+            if (typeof page !== 'number') {
+                page = 1;
+            }
+            
+            if (clearResults) {
+                currentPage = 1;
+                hasMoreResults = true;
+                document.getElementById('cardGrid').innerHTML = '';
+            }
+            
+            isLoading = true;
+            
+            // Show loading
+            if (clearResults) {
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('cardGrid').style.display = 'none';
+            } else {
+                document.getElementById('loadingMore').style.display = 'block';
+            }
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('noResults').style.display = 'none';
+            document.getElementById('resultsInfo').style.display = 'none';
+            
+            // Get filter values
+            currentFilters = {
+                q: document.getElementById('searchInput').value,
+                set: document.getElementById('setFilter').value,
+                type: document.getElementById('typeFilter').value,
+                rarity: document.getElementById('rarityFilter').value,
+                edition: document.getElementById('editionFilter').value,
+                characteristics: document.getElementById('characteristicsFilter').value,
+                sort: document.getElementById('sortBy').value,
+                page: page,
+                per_page: 20
+            };
+            
+            // Build query string
+            const params = new URLSearchParams();
+            Object.keys(currentFilters).forEach(key => {
+                if (currentFilters[key]) {
+                    params.append(key, currentFilters[key]);
+                }
+            });
+            
+            try {
+                const response = await fetch(`/api/search?${params}`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    displayResults(data, clearResults);
+                } else {
+                    showError(data.error || 'An error occurred while searching');
+                }
+            } catch (error) {
+                showError('Network error. Please try again.');
+                console.error('Search error:', error);
+            } finally {
+                isLoading = false;
+            }
+        }
+
+        function displayResults(data, clearResults = false) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('loadingMore').style.display = 'none';
+            
+            const cardGrid = document.getElementById('cardGrid');
+            cardGrid.style.display = 'grid';
+            
+            if (clearResults && data.results.length === 0) {
+                document.getElementById('noResults').style.display = 'block';
+                hasMoreResults = false;
+                return;
+            }
+            
+            // Display cards
+            data.results.forEach(card => {
+                const cardElement = createCardElement(card);
+                cardGrid.appendChild(cardElement);
+            });
+            
+            // Update results info
+            document.getElementById('resultsInfo').style.display = 'flex';
+            document.getElementById('resultCount').textContent = `Found ${data.total} cards`;
+            document.getElementById('pageInfo').textContent = `Showing ${cardGrid.children.length} of ${data.total}`;
+            
+            // Update pagination state
+            totalPages = data.total_pages;
+            currentPage = data.page;
+            hasMoreResults = currentPage < totalPages;
+        }
+        
+        async function loadMoreCards() {
+            if (isLoading || !hasMoreResults) return;
+            await searchCards(currentPage + 1, false);
+        }
+
+        function createCardElement(card) {
+            const cardDiv = document.createElement('div');
+            cardDiv.className = 'card';
+            cardDiv.onclick = () => showCardDetails(card.id);
+            
+            const imageUrl = card.images.small || card.images.large || '/static/placeholder.png';
+            
+            cardDiv.innerHTML = `
+                <div class="card-image-container">
+                    <img src="${imageUrl}" alt="${card.name}" class="card-image" loading="lazy">
+                </div>
+                <div class="card-info">
+                    <div class="card-name">${card.name}</div>
+                    <div class="card-details">${card.set.name}</div>
+                    <div class="card-details">#${card.number} • ${card.rarity || 'Common'}</div>
+                    ${card.hp ? `<div class="card-details">HP: ${card.hp}</div>` : ''}
+                    ${card.current_price ? `<div class="card-details" style="color: #27ae60; font-weight: bold;">$${card.current_price.toFixed(2)}</div>` : ''}
+                    ${card.tcgplayer_url ? `<div class="card-details"><a href="${card.tcgplayer_url}" target="_blank" style="color: #3498db;">View on TCGPlayer</a></div>` : ''}
+                    <div class="card-types">
+                        ${card.types.map(type => `<span class="type-badge type-${type.toLowerCase()}">${type}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+            
+            return cardDiv;
+        }
+
+
+        async function showCardDetails(cardId) {
+            const modal = document.getElementById('cardModal');
+            const modalContent = document.getElementById('modalContent');
+            
+            modalContent.innerHTML = '<div class="loading">Loading card details...</div>';
+            modal.style.display = 'block';
+            
+            try {
+                const response = await fetch(`/api/card/${cardId}`);
+                const card = await response.json();
+                
+                if (response.ok) {
+                    modalContent.innerHTML = createDetailView(card);
+                } else {
+                    modalContent.innerHTML = '<div class="error">Error loading card details</div>';
+                }
+            } catch (error) {
+                modalContent.innerHTML = '<div class="error">Network error</div>';
+                console.error('Detail error:', error);
+            }
+        }
+
+        function createDetailView(card) {
+            const imageUrl = card.images.large || card.images.small || '/static/placeholder.png';
+            
+            let html = `
+                <div class="card-detail-grid">
+                    <div>
+                        <img src="${imageUrl}" alt="${card.name}" class="card-detail-image">
+                    </div>
+                    <div class="card-detail-info">
+                        <h2>${card.name}</h2>
+                        <p><strong>Set:</strong> ${card.set.name} (${card.set.series})</p>
+                        <p><strong>Number:</strong> ${card.number} / ${card.set.printed_total || card.set.total}</p>
+                        <p><strong>Rarity:</strong> ${card.rarity || 'Common'}</p>
+                        ${card.hp ? `<p><strong>HP:</strong> ${card.hp}</p>` : ''}
+                        ${card.types.length > 0 ? `<p><strong>Types:</strong> ${card.types.join(', ')}</p>` : ''}
+                        ${card.artist ? `<p><strong>Artist:</strong> ${card.artist}</p>` : ''}
+                        ${card.evolves_from ? `<p><strong>Evolves from:</strong> ${card.evolves_from}</p>` : ''}
+            `;
+            
+            // Abilities
+            if (card.abilities && card.abilities.length > 0) {
+                html += '<div class="detail-section"><h3>Abilities</h3>';
+                card.abilities.forEach(ability => {
+                    html += `
+                        <div class="attack">
+                            <div class="attack-name">${ability.name} (${ability.type})</div>
+                            <div class="attack-text">${ability.text}</div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            // Attacks
+            if (card.attacks && card.attacks.length > 0) {
+                html += '<div class="detail-section"><h3>Attacks</h3>';
+                card.attacks.forEach(attack => {
+                    html += `
+                        <div class="attack">
+                            <div class="attack-name">
+                                ${attack.name}
+                                ${attack.damage ? `<span class="attack-damage">${attack.damage}</span>` : ''}
+                            </div>
+                            ${attack.text ? `<div class="attack-text">${attack.text}</div>` : ''}
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            // Weaknesses and Resistances
+            if (card.weaknesses && card.weaknesses.length > 0) {
+                html += `<p><strong>Weaknesses:</strong> ${card.weaknesses.map(w => `${w.type} ${w.value}`).join(', ')}</p>`;
+            }
+            
+            if (card.resistances && card.resistances.length > 0) {
+                html += `<p><strong>Resistances:</strong> ${card.resistances.map(r => `${r.type} ${r.value}`).join(', ')}</p>`;
+            }
+            
+            if (card.retreat_cost && card.retreat_cost.length > 0) {
+                html += `<p><strong>Retreat Cost:</strong> ${card.retreat_cost.length} (${card.retreat_cost.join(', ')})</p>`;
+            }
+            
+            // Rules
+            if (card.rules && card.rules.length > 0) {
+                html += '<div class="detail-section"><h3>Rules</h3>';
+                card.rules.forEach(rule => {
+                    html += `<p>${rule}</p>`;
+                });
+                html += '</div>';
+            }
+            
+            // Variations
+            if (card.variations && card.variations.length > 0) {
+                html += '<div class="detail-section"><h3>Available Variations</h3>';
+                card.variations.forEach(var_ => {
+                    const features = [];
+                    if (var_.is_reverse_holo) features.push('Reverse Holo');
+                    if (var_.is_first_edition) features.push('1st Edition');
+                    if (var_.is_stamped) features.push(`Stamped (${var_.stamp_type})`);
+                    
+                    if (features.length > 0) {
+                        html += `<p>• ${features.join(', ')}</p>`;
+                    }
+                });
+                html += '</div>';
+            }
+            
+            html += '</div></div>';
+            
+            return html;
+        }
+
+        function closeModal() {
+            document.getElementById('cardModal').style.display = 'none';
+        }
+
+        function showError(message) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('error').textContent = message;
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('cardModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

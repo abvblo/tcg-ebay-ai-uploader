@@ -1,0 +1,6 @@
+aiohttp==3.9.1
+SQLAlchemy==2.0.21
+psycopg2-binary==2.9.7
+tqdm==4.66.1
+fuzzywuzzy==0.18.0
+python-Levenshtein==0.23.0

@@ -1,0 +1,238 @@
+{
+  "timestamp": "20250704_142600",
+  "image_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTcw/z/NvwAAeSweANoaEbl/$_1.PNG?set_id=2",
+  "response": {
+    "records": [
+      {
+        "_url": "https://i.ebayimg.com/00/s/MTYwMFgxMTcw/z/NvwAAeSweANoaEbl/$_1.PNG?set_id=2",
+        "_status": {
+          "code": 200,
+          "text": "OK",
+          "request_id": "b800bf82-aab2-4f39-9d14-363b95edef91"
+        },
+        "_id": "dc8765f3-6bb0-448c-ba79-ddd678401d5f",
+        "_width": 293,
+        "_height": 400,
+        "Category": "Card/Trading Card Game",
+        "_objects": [
+          {
+            "name": "Card",
+            "id": "76fa9ec3-e0d9-408a-b582-55a1cd6712e0",
+            "bound_box": [
+              12,
+              4,
+              282,
+              397
+            ],
+            "prob": 0.9381238222122192,
+            "area": 0.9053754266211604,
+            "Top Category": [
+              {
+                "id": "8ae26c4a-ae79-4c01-9b54-ac4e2b42e914",
+                "name": "Card",
+                "prob": 1.0
+              }
+            ],
+            "_tags": {
+              "Category": [
+                {
+                  "name": "Card/Trading Card Game",
+                  "prob": 1.0,
+                  "id": "d44efa56-09c3-4829-b3e7-226fe9cfe798",
+                  "pre-filled": true
+                }
+              ],
+              "Side": [
+                {
+                  "prob": 0.9985,
+                  "name": "front",
+                  "id": "b48a23fe-381e-4a67-b649-9839e1f7d5a7"
+                }
+              ],
+              "Subcategory": [
+                {
+                  "prob": 0.98377,
+                  "name": "Pokemon",
+                  "id": "fdbb3942-b7e0-476a-8f13-af77aedd13e6"
+                }
+              ],
+              "Foil/Holo": [
+                {
+                  "prob": 0.94946,
+                  "name": "Reverse Holo",
+                  "id": "1084300f-10b7-409e-8fc4-e8a42775995d"
+                }
+              ],
+              "Rotation": [
+                {
+                  "prob": 0.99565,
+                  "name": "rotation_ok",
+                  "id": "2cfa3525-1dc6-440f-9b0d-efcb297ccf37"
+                }
+              ],
+              "Alphabet": [
+                {
+                  "prob": 0.99832,
+                  "name": "latin",
+                  "id": "f0339837-aa0b-414f-acb8-d47d6ef3b7fa"
+                }
+              ],
+              "Mark": [
+                {
+                  "prob": 0.97364,
+                  "name": "normal",
+                  "id": "1d5dcda4-1f42-4a23-953e-f76fcbb0d57b"
+                }
+              ],
+              "Graded": [
+                {
+                  "prob": 0.91779,
+                  "name": "no",
+                  "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+                }
+              ]
+            },
+            "_tags_simple": [
+              "Card/Trading Card Game",
+              "front",
+              "Pokemon",
+              "Reverse Holo",
+              "rotation_ok",
+              "latin",
+              "normal"
+            ],
+            "_identification": {
+              "best_match": {
+                "set": "Guardians Rising",
+                "series": "Sun & Moon",
+                "rarity": "Uncommon",
+                "type": "Trainer",
+                "sub_type": "Item",
+                "out_of": "145",
+                "name": "Rescue Stretcher",
+                "set_series_code": "SM2",
+                "card_number": "130a",
+                "full_name": "Rescue Stretcher Guardians Rising (GRI) #130a",
+                "set_code": "GRI",
+                "year": 2019,
+                "subcategory": "Pokemon",
+                "links": {
+                  "tcgplayer.com": "https://www.tcgplayer.com/product/190380",
+                  "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Rescue+Stretcher+GRI+%23130a&_sacat=2536"
+                }
+              },
+              "alternatives": [
+                {
+                  "set": "Pok\u00e9mon Trading Card Game Classic\u2014Blastoise",
+                  "type": "Energy",
+                  "sub_type": "Special Energy",
+                  "out_of": "034",
+                  "name": "Double Colorless Energy",
+                  "card_number": "032",
+                  "full_name": "Double Colorless Energy Pokemon Trading Card Game ClassicBlastoise (CLB) #032",
+                  "set_code": "CLB",
+                  "year": 2023,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/528017",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Double+Colorless+Energy+CLB+%23032&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Pok\u00e9mon Trading Card Game Classic\u2014Venusaur",
+                  "type": "Energy",
+                  "sub_type": "Special Energy",
+                  "out_of": "034",
+                  "name": "Double Colorless Energy",
+                  "card_number": "032",
+                  "full_name": "Double Colorless Energy Pokemon Trading Card Game ClassicVenusaur (CLV) #032",
+                  "set_code": "CLV",
+                  "year": 2023,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/527926",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Double+Colorless+Energy+CLV+%23032&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Cosmic Eclipse",
+                  "series": "Sun & Moon",
+                  "rarity": "Uncommon",
+                  "type": "Pokemon",
+                  "color": "Psychic",
+                  "out_of": "236",
+                  "name": "Rotom",
+                  "set_series_code": "SM12",
+                  "card_number": "86",
+                  "full_name": "Rotom Cosmic Eclipse (CEC) #86",
+                  "set_code": "CEC",
+                  "year": 2019,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/201260",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Rotom+CEC+%2386&_sacat=2536"
+                  }
+                },
+                {
+                  "set": "Fusion Strike",
+                  "series": "Sword & Shield",
+                  "rarity": "Uncommon",
+                  "type": "Pokemon",
+                  "color": "Water",
+                  "out_of": "264",
+                  "name": "Galarian Darmanitan",
+                  "set_series_code": "SWSH8",
+                  "card_number": "072",
+                  "full_name": "Galarian Darmanitan Fusion Strike (FST) #072",
+                  "set_code": "FST",
+                  "year": 2021,
+                  "subcategory": "Pokemon",
+                  "links": {
+                    "tcgplayer.com": "https://www.tcgplayer.com/product/253222",
+                    "ebay.com": "https://www.ebay.com/sch/i.html?_nkw=Pokemon+Galarian+Darmanitan+FST+%23072&_sacat=2536"
+                  }
+                }
+              ],
+              "distances": [
+                0.18106966,
+                0.796299,
+                0.81729066,
+                0.8322601,
+                0.840332
+              ]
+            }
+          }
+        ],
+        "Graded Slab": [
+          {
+            "prob": 0.91779,
+            "name": "no",
+            "id": "3a532911-7d7c-4b9b-8442-f0f293952be6"
+          },
+          {
+            "prob": 0.08221,
+            "name": "yes",
+            "id": "9d7bf709-dfbc-4595-91be-a9d779b5f33c"
+          }
+        ]
+      }
+    ],
+    "status": {
+      "code": 200,
+      "text": "OK",
+      "request_id": "b800bf82-aab2-4f39-9d14-363b95edef91",
+      "proc_id": "fcfab150-7c97-49cd-aa43-c749cbf8a38c"
+    },
+    "statistics": {
+      "processing time": 1.1088719367980957
+    }
+  },
+  "analysis": {
+    "has_identification": true,
+    "confidence_score": 0.81893034,
+    "alternatives_count": 4,
+    "best_match_name": "Rescue Stretcher",
+    "issues": [],
+    "recommendations": []
+  }
+}
