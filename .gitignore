@@ -147,3 +147,6 @@ yarn-error.log*
 .env.development
 secrets/
 private/
+
+# Specific exclusions
+/src/web/static/images/
