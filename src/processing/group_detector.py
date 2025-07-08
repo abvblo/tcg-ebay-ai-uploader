@@ -8,11 +8,19 @@ import re
 from ..models import ImageGroup
 from ..config import Config
 from ..utils.logger import logger
+from .image_optimizer import ImageOptimizer
 
 class ImageGroupDetector:
     def __init__(self, config: Config):
         self.config = config
         self.scans_folder = config.scans_folder
+        
+        # Initialize automatic image optimizer with config settings
+        self.image_optimizer = ImageOptimizer(
+            max_size=config.processing.optimization_max_size,
+            quality=config.processing.optimization_quality,
+            format_type=config.processing.optimization_format
+        )
         
         # Compile regex patterns
         self.regex_patterns = {
@@ -30,8 +38,16 @@ class ImageGroupDetector:
         if not all_files:
             return []
         
+        # Automatically optimize images for eBay performance (if enabled)
+        if self.config.processing.auto_optimize_images:
+            logger.info("🔧 Automatically optimizing images for optimal eBay performance...")
+            optimized_files = self._optimize_images_inplace(all_files)
+        else:
+            logger.info("⚠️ Automatic image optimization is disabled")
+            optimized_files = all_files
+        
         # Sort files
-        all_files = sorted(all_files)
+        all_files = sorted(optimized_files)
         
         # Group images
         groups = []
@@ -165,3 +181,24 @@ class ImageGroupDetector:
                 ))
         
         return groups
+    
+    def _optimize_images_inplace(self, image_files: List[str]) -> List[str]:
+        """Optimize images in-place for eBay performance"""
+        if not image_files:
+            return image_files
+        
+        # Convert string paths to Path objects
+        image_paths = [Path(file_path) for file_path in image_files]
+        
+        # Optimize images (this modifies files in-place)
+        optimized_paths = self.image_optimizer.optimize_image_list(image_paths, create_backup=False)
+        
+        # Log optimization results
+        stats = self.image_optimizer.get_optimization_stats()
+        if stats['optimized_count'] > 0:
+            logger.info(f"✅ Automatically optimized {stats['optimized_count']} images, "
+                       f"saved {stats['total_size_saved_mb']:.1f}MB total")
+            logger.info("   💡 Images are now optimized for fast eBay upload and processing")
+        
+        # Convert back to string paths
+        return [str(path) for path in optimized_paths]

@@ -38,6 +38,12 @@ class ProcessingConfig:
     # Memory management
     max_images_in_memory: int = 50
     gc_threshold: int = 100
+    
+    # Image optimization settings
+    auto_optimize_images: bool = True
+    optimization_max_size: int = 1600  # pixels on longest side
+    optimization_quality: int = 85     # JPEG quality 1-100
+    optimization_format: str = 'JPEG'  # 'JPEG' or 'PNG'
 
 @dataclass
 class ImageGroup:

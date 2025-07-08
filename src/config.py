@@ -1,146 +1,164 @@
-"""Configuration management with environment variable support"""
+"""Configuration management with environment variable support and validation"""
 
 import json
 import os
+import logging
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, Any, Optional, Union, List
+from dataclasses import dataclass, field
 from dotenv import load_dotenv
+
 from .models import ProcessingConfig
 from .utils.logger import logger
 
+
+@dataclass
 class Config:
-    def __init__(self, config_path: str = "config.json"):
-        # Load environment variables
-        env_path = Path(__file__).parent.parent / '.env'
-        if env_path.exists():
-            load_dotenv(env_path)
-            logger.info("✅ Loaded environment variables from .env file")
-        else:
-            logger.warning("⚠️ No .env file found, using config.json only")
+    """Configuration manager with environment variable support and validation.
+    
+    Args:
+        config_path: Path to the config.json file
+        env_path: Path to the .env file (default: project_root/.env)
         
-        self.config_path = Path(config_path).absolute()
+    Raises:
+        ValueError: If required configuration is missing or invalid
+    """
+    
+    config_path: str = "config.json"
+    env_path: Optional[Union[str, Path]] = None
+    
+    def __post_init__(self):
+        # Set up paths
+        self.project_root = Path(__file__).parent.parent
+        self._setup_environment()
+        
+        # Load configuration
         self.data = self._load_config()
         self.processing = self._load_processing_config()
         
-        # Paths
-        self.project_root = self.config_path.parent
-        self.scans_folder = self.project_root / "Scans"
-        self.output_folder = self.project_root / "output"
-        self.cache_folder = self.output_folder / "ultra_cache"
+        # Initialize paths
+        self._setup_paths()
+        
+        # Validate configuration
+        self._validate_config()
+    
+    def _setup_environment(self) -> None:
+        """Load environment variables from .env file if it exists"""
+        env_path = Path(self.env_path) if self.env_path else self.project_root / '.env'
+        if env_path.exists():
+            load_dotenv(env_path)
+            logger.info("✅ Loaded environment variables from %s", env_path)
+    
+    def _setup_paths(self) -> None:
+        """Initialize all file system paths"""
+        # Base paths
+        self.scans_folder = Path(self.data.get('scans_folder', self.project_root / 'Scans'))
+        self.output_folder = Path(self.data.get('output_folder', self.project_root / 'output'))
+        self.cache_folder = Path(self.data.get('cache_folder', self.output_folder / 'ultra_cache'))
         
         # Create necessary directories
-        self.output_folder.mkdir(exist_ok=True)
-        self.cache_folder.mkdir(exist_ok=True)
+        self.scans_folder.mkdir(exist_ok=True, parents=True)
+        self.output_folder.mkdir(exist_ok=True, parents=True)
+        self.cache_folder.mkdir(exist_ok=True, parents=True)
     
     def _load_config(self) -> Dict[str, Any]:
         """Load configuration from JSON file"""
+        config_path = Path(self.config_path)
+        if not config_path.is_absolute():
+            config_path = self.project_root / config_path
+            
         try:
-            with open(self.config_path, 'r') as f:
-                return json.load(f)
+            with open(config_path, 'r', encoding='utf-8') as f:
+                return json.load(f) or {}
         except FileNotFoundError:
-            logger.warning(f"⚠️ config.json not found at {self.config_path}, using environment variables only")
+            logger.warning("⚠️ config.json not found at %s, using environment variables only", 
+                         config_path)
             return {}
         except json.JSONDecodeError as e:
-            logger.error(f"❌ Invalid JSON in config file: {e}")
-            raise
+            logger.error("❌ Invalid JSON in config file: %s", e)
+            return {}
     
     def _load_processing_config(self) -> ProcessingConfig:
-        """Load processing configuration from environment or config.json"""
-        return ProcessingConfig(
-            max_concurrent_groups=int(os.getenv('MAX_CONCURRENT_GROUPS', 
-                                              self.data.get('processing', {}).get('max_concurrent_groups', 15))),
-            max_concurrent_api_calls=int(os.getenv('MAX_CONCURRENT_API_CALLS', 
-                                                  self.data.get('processing', {}).get('max_concurrent_api_calls', 25))),
-            cache_size_gb=int(os.getenv('CACHE_SIZE_GB', 
-                                       self.data.get('processing', {}).get('cache_size_gb', 10))),
-            retry_attempts=int(os.getenv('RETRY_ATTEMPTS', 
-                                       self.data.get('processing', {}).get('retry_attempts', 3))),
-            connection_timeout=int(os.getenv('CONNECTION_TIMEOUT', 
-                                           self.data.get('processing', {}).get('connection_timeout', 45))),
-            read_timeout=int(os.getenv('READ_TIMEOUT', 
-                                      self.data.get('processing', {}).get('read_timeout', 90))),
+        """Load processing configuration with environment variable fallback"""
+        def get_setting(key: str, default: Any, env_key: str = None) -> Any:
+            env_key = env_key or key.upper()
+            return os.getenv(env_key, self.data.get('processing', {}).get(key, default))
             
-            # Rate limiting
-            rate_limit_ximilar=float(os.getenv('RATE_LIMIT_XIMILAR', 
-                                              self.data.get('processing', {}).get('rate_limit_ximilar', 0.1))),
-            rate_limit_pokemon=float(os.getenv('RATE_LIMIT_POKEMON', 
-                                              self.data.get('processing', {}).get('rate_limit_pokemon', 0.05))),
-            rate_limit_ebay=float(os.getenv('RATE_LIMIT_EBAY', 
-                                           self.data.get('processing', {}).get('rate_limit_ebay', 0.15))),
-            rate_limit_openai=float(os.getenv('RATE_LIMIT_OPENAI', 
-                                            self.data.get('processing', {}).get('rate_limit_openai', 0.2))),
-            rate_limit_scryfall=float(os.getenv('RATE_LIMIT_SCRYFALL', 
-                                              self.data.get('processing', {}).get('rate_limit_scryfall', 0.1))),
+        return ProcessingConfig(
+            # Concurrency settings
+            max_concurrent_groups=int(get_setting('max_concurrent_groups', 15)),
+            max_concurrent_api_calls=int(get_setting('max_concurrent_api_calls', 25)),
+            
+            # Cache settings
+            cache_size_gb=int(get_setting('cache_size_gb', 10)),
+            cache_ttl=int(get_setting('cache_ttl', 30)),  # days
+            
+            # Retry settings
+            retry_attempts=int(get_setting('retry_attempts', 3)),
+            connection_timeout=int(get_setting('connection_timeout', 45)),
+            read_timeout=int(get_setting('read_timeout', 90)),
+            
+            # Rate limiting (seconds between calls)
+            rate_limit_ximilar=float(get_setting('rate_limit_ximilar', 0.1)),
+            rate_limit_pokemon=float(get_setting('rate_limit_pokemon', 0.05)),
+            rate_limit_ebay=float(get_setting('rate_limit_ebay', 0.15)),
+            rate_limit_openai=float(get_setting('rate_limit_openai', 0.2)),
+            rate_limit_scryfall=float(get_setting('rate_limit_scryfall', 0.1)),
             
             # Quality thresholds
-            confidence_threshold_high=float(os.getenv('CONFIDENCE_THRESHOLD_HIGH', 
-                                                    self.data.get('processing', {}).get('confidence_threshold_high', 0.95))),
-            confidence_threshold_medium=float(os.getenv('CONFIDENCE_THRESHOLD_MEDIUM', 
-                                                      self.data.get('processing', {}).get('confidence_threshold_medium', 0.85))),
-            confidence_threshold_low=float(os.getenv('CONFIDENCE_THRESHOLD_LOW', 
-                                                   self.data.get('processing', {}).get('confidence_threshold_low', 0.30))),
+            confidence_threshold_high=float(get_setting('confidence_threshold_high', 0.95)),
+            confidence_threshold_medium=float(get_setting('confidence_threshold_medium', 0.85)),
+            confidence_threshold_low=float(get_setting('confidence_threshold_low', 0.30)),
             
             # Pricing
-            markup_percentage=float(os.getenv('MARKUP_PERCENTAGE', 
-                                            self.data.get('processing', {}).get('markup_percentage', 1.30))),
-            minimum_price_floor=float(os.getenv('MINIMUM_PRICE_FLOOR', 
-                                              self.data.get('processing', {}).get('minimum_price_floor', 1.99))),
-            
-            # Caching
-            cache_ttl=int(os.getenv('CACHE_TTL_DAYS', 
-                                   self.data.get('processing', {}).get('cache_ttl', 30))),
+            markup_percentage=float(get_setting('markup_percentage', 1.30)),
+            minimum_price_floor=float(get_setting('minimum_price_floor', 1.99)),
             
             # Memory management
-            max_images_in_memory=int(os.getenv('MAX_IMAGES_IN_MEMORY', 
-                                              self.data.get('processing', {}).get('max_images_in_memory', 50))),
-            gc_threshold=int(os.getenv('GC_THRESHOLD', 
-                                      self.data.get('processing', {}).get('gc_threshold', 100))),
+            max_images_in_memory=int(get_setting('max_images_in_memory', 50)),
+            gc_threshold=int(get_setting('gc_threshold', 100)),
+            
+            # Image optimization
+            auto_optimize_images=get_setting('auto_optimize_images', 'true').lower() in ('1', 'true', 'yes'),
+            optimization_max_size=int(get_setting('optimization_max_size', 1600)),
+            optimization_quality=int(get_setting('optimization_quality', 85)),
+            optimization_format=get_setting('optimization_format', 'JPEG')
         )
     
-    def get(self, key: str, default: Any = None) -> Any:
-        """Get configuration value"""
-        return self.data.get(key, default)
+    def _validate_config(self) -> None:
+        """Validate configuration and set required attributes"""
+        # Required API keys
+        self.ximilar_api_key = os.getenv('XIMILAR_API_KEY') or self.data.get('ximilar_api_key')
+        if not self.ximilar_api_key:
+            raise ValueError("Ximilar API key is required (set XIMILAR_API_KEY in .env or config.json)")
+            
+        self.ximilar_endpoint = os.getenv('XIMILAR_ENDPOINT') or self.data.get('ximilar_endpoint') \
+                               or 'https://api.ximilar.com/'
+        
+        # Optional API keys with warnings
+        self.pokemon_tcg_api_key = os.getenv('POKEMON_TCG_API_KEY') or self.data.get('pokemon_tcg_api_key')
+        self.openai_api_key = os.getenv('OPENAI_API_KEY') or self.data.get('openai_api_key')
+        self.ebay_config = self.data.get('ebay', {})
+        
+        if not self.pokemon_tcg_api_key:
+            logger.warning("⚠️ Pokemon TCG API key not found - some features may be limited")
+        
+        if not self.openai_api_key:
+            logger.warning("⚠️ OpenAI API key not found - title optimization will be disabled")
     
-    @property
-    def ximilar_api_key(self) -> str:
-        return os.getenv('XIMILAR_API_KEY', self.data.get('ximilar', {}).get('api_key', ''))
-    
-    @property
-    def ximilar_endpoint(self) -> str:
-        return os.getenv('XIMILAR_ENDPOINT', self.data.get('ximilar', {}).get('endpoint', ''))
-    
-    @property
-    def pokemon_tcg_api_key(self) -> str:
-        return os.getenv('POKEMON_TCG_API_KEY', self.data.get('pokemon_tcg_api_key', ''))
-    
-    @property
-    def openai_api_key(self) -> str:
-        return os.getenv('OPENAI_API_KEY', self.data.get('openai_api_key', ''))
-    
-    @property
-    def ebay_config(self) -> Dict[str, str]:
-        # Prefer environment variables over config.json
+    def get_http_session_config(self) -> Dict[str, Any]:
+        """Get configuration for HTTP session"""
         return {
-            'appid': os.getenv('EBAY_APP_ID', self.data.get('ebay_api', {}).get('appid', '')),
-            'devid': os.getenv('EBAY_DEV_ID', self.data.get('ebay_api', {}).get('devid', '')),
-            'certid': os.getenv('EBAY_CERT_ID', self.data.get('ebay_api', {}).get('certid', '')),
-            'token': os.getenv('EBAY_USER_TOKEN', self.data.get('ebay_api', {}).get('token', '')),
-        }
-    
-    @property
-    def business_policies(self) -> Dict[str, str]:
-        # Prefer environment variables over config.json
-        return {
-            'payment_policy_name': os.getenv('PAYMENT_POLICY_NAME', 
-                                            self.data.get('business_policies', {}).get('payment_policy_name', 
-                                                                                      'Immediate Payment (BIN)')),
-            'shipping_policy_under_20': os.getenv('SHIPPING_POLICY_UNDER_20', 
-                                                self.data.get('business_policies', {}).get('shipping_policy_under_20', 
-                                                                                          'Standard Envelope 1oz (Free)')),
-            'shipping_policy_over_20': os.getenv('SHIPPING_POLICY_OVER_20', 
-                                               self.data.get('business_policies', {}).get('shipping_policy_over_20', 
-                                                                                         'Free Shipping US GA')),
-            'return_policy_name': os.getenv('RETURN_POLICY_NAME', 
-                                          self.data.get('business_policies', {}).get('return_policy_name', 
-                                                                                    'Returns Accepted')),
+            'connector': {
+                'limit': 200,
+                'limit_per_host': 60,
+                'enable_cleanup_closed': True,
+                'force_close': False
+            },
+            'timeout': aiohttp.ClientTimeout(
+                total=self.processing.connection_timeout + self.processing.read_timeout,
+                connect=self.processing.connection_timeout,
+                sock_read=self.processing.read_timeout
+            ),
+            'raise_for_status': True
         }

@@ -182,10 +182,15 @@ class OpenAITitleOptimizer:
         
         # Add finish if meaningful - CRITICAL for value
         finish = card_data.get('finish', '').strip()
-        if finish and finish.lower() not in ['normal', 'regular', 'standard', 'non-foil', 'nonfoil']:
-            # Ensure we include holo/foil terms
-            if 'holo' in finish.lower() or 'foil' in finish.lower():
-                parts.append(finish)
+        if finish and finish.lower() not in ['normal', 'regular', 'standard', 'non-foil', 'nonfoil', 'non-holo']:
+            # Include important finishes that buyers search for, but avoid duplication
+            finish_already_in_parts = any(finish.lower() in part.lower() for part in parts)
+            if not finish_already_in_parts:
+                if any(term in finish.lower() for term in ['holo', 'foil', 'reverse', 'rainbow', 'full art', 'alt art']):
+                    parts.append(finish)
+                elif finish.lower() not in ['normal', 'regular', 'standard']:
+                    # Include any other special finishes
+                    parts.append(finish)
         
         # Check if rarity indicates holo but finish doesn't
         if rarity and 'holo' in rarity.lower() and not any('holo' in p.lower() for p in parts):

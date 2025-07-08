@@ -104,9 +104,23 @@ class EbayFormatter:
         }
     
     def _get_finish_value(self, card: CardData) -> str:
-        """Get finish value with smart defaults"""
+        """Get finish value with support for all finish types"""
         if card.finish:
-            return card.finish
+            # Map finish values to eBay-acceptable values
+            finish_mapping = {
+                'Reverse Holo': 'Reverse Holo',
+                'Holo': 'Holo',
+                'Holofoil': 'Holo',
+                'Normal': 'Non-Holo',
+                'Non-Holo': 'Non-Holo',
+                'No Holo': 'Non-Holo',
+                'Foil': 'Holo',
+                'Non-Foil': 'Non-Holo'
+            }
+            
+            mapped_finish = finish_mapping.get(card.finish, card.finish)
+            if mapped_finish in ['Reverse Holo', 'Holo', 'Non-Holo']:
+                return mapped_finish
         
         # Smart defaults based on game and rarity
         if card.game.lower() in ['pokémon', 'pokemon']:
@@ -119,7 +133,7 @@ class EbayFormatter:
         elif card.game.lower() in ['magic: the gathering', 'mtg']:
             return 'Non-Foil'
         else:
-            return 'Standard'
+            return 'Non-Holo'
     
     def _extract_year(self, card: CardData) -> str:
         """Extract year manufactured from release date"""

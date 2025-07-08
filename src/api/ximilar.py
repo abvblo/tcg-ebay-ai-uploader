@@ -72,6 +72,9 @@ class XimilarClient:
         set_name = best_match.get("set", "").strip()
         rarity = best_match.get("rarity", "").strip()
         
+        # Extract finish information from Ximilar tags
+        finish = self._extract_finish_from_ximilar(card_obj)
+        
         # FIX: Extract confidence from the correct location
         # Option 1: Use card detection probability (how confident it is that this is a card)
         card_detection_confidence = card_obj.get("prob", 0)
@@ -96,7 +99,7 @@ class XimilarClient:
             'set_name': set_name,
             'rarity': rarity,
             'game': self._determine_game_type(set_name, name),
-            'finish': self._determine_finish(rarity),  # Basic fallback - real finish comes from APIs
+            'finish': finish,  # Extracted from Ximilar tags
             'confidence': confidence,  # Now using the correct confidence value
             'match_confidence': match_confidence,  # Additional metric for reference
             'unique_characteristics': unique_characteristics,  # Basic extraction - enhanced by APIs
@@ -153,7 +156,31 @@ class XimilarClient:
         
         return 'Pokémon'
     
+    def _extract_finish_from_ximilar(self, card_obj: Dict[str, Any]) -> str:
+        """Extract finish information from Ximilar response tags"""
+        tags = card_obj.get("_tags", {})
+        foil_holo_tags = tags.get("Foil/Holo", [])
+        
+        if foil_holo_tags:
+            # Get the highest probability finish
+            finish_tag = max(foil_holo_tags, key=lambda x: x.get("prob", 0))
+            finish_name = finish_tag.get("name", "").strip()
+            
+            # Map Ximilar finish names to our standard names
+            finish_mapping = {
+                "Reverse Holo": "Reverse Holo",
+                "Holo": "Holo",
+                "Holofoil": "Holo",
+                "Normal": "Normal",
+                "Non-Holo": "Normal",
+                "No Holo": "Normal"
+            }
+            
+            return finish_mapping.get(finish_name, finish_name)
+        
+        return "Normal"
+    
     def _determine_finish(self, rarity: str) -> str:
-        """Basic finish determination from rarity (will be overridden by API data)"""
-        # This is now just a basic fallback - the real finish comes from Pokemon TCG/Scryfall APIs
+        """Basic finish determination from rarity (fallback only)"""
+        # This is now just a basic fallback
         return ''
