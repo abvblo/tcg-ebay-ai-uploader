@@ -8,6 +8,12 @@ build/
 develop-eggs/
 dist/
 downloads/
+
+# Environment files (including backups)
+.env
+.env.*
+*.env
+.env.current.backup
 eggs/
 .eggs/
 lib/
@@ -33,10 +39,15 @@ env/
 .env.*.local
 
 # CRITICAL: Environment variables and secrets
-.env
-.env.*
-!.env.example
-config.json
+# (duplicates above cleaned up)
+!config/.env.template
+!config/.env.production.example
+config/config.json
+!config/config.example.json
+*.key
+*.pem
+*.p12
+secrets.json
 
 # PyCharm
 .idea/
@@ -85,12 +96,33 @@ $RECYCLE.BIN/
 # Project specific - Images and Output
 Scans/*
 !Scans/.gitkeep
+output/scans/
 output/*.xlsx
 output/*.xls
 output/*.csv
 output/*.log
 output/ultra_cache/
+output/manual_review/*.json
+output/ximilar_debug/
 !output/.gitkeep
+!output/manual_review/.gitkeep
+
+# Temporary cleanup files
+*.bak
+*.backup
+*.tmp
+*.temp
+
+# Old directories (removed during reorganization)
+image_optimization_tests/
+docs/api/
+assets/images/mtg/
+
+# Japanese card data
+japanese_pokemon_cards_complete/
+
+# Docker volumes
+docker/volumes/
 
 # Logs
 *.log
@@ -143,8 +175,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # Other
-.env.production
-.env.development
 secrets/
 private/
 
