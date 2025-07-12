@@ -178,6 +178,9 @@ docs/_build/
 docs/_static/
 docs/_templates/
 
+# Context files - keep current context, archive old ones
+context/archive/
+
 # Package files
 *.tar.gz
 *.zip

@@ -26,3 +26,8 @@ python-dotenv>=1.0.0
 
 # Type hints (for older Python versions)
 typing-extensions>=4.5.0
+
+# Database
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+alembic>=1.16.0

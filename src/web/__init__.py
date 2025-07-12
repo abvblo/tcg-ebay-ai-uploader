@@ -1,0 +1,1 @@
+"""Flask web application for Pokemon card search and database management"""

@@ -1,0 +1,6 @@
+# Crontab for automated backups
+# Run backup every day at 2:00 AM
+0 2 * * * /scripts/backup.sh >> /backup/backup.log 2>&1
+
+# Run backup every 6 hours for critical data
+0 */6 * * * /scripts/backup.sh >> /backup/backup.log 2>&1

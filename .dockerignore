@@ -1,0 +1,118 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+htmlcov/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+*.env
+.env.*
+!.env.template
+!.env.example
+config.json
+*.pid
+*.out
+download_log.txt
+import_data_log.txt
+title_analysis.txt
+
+# Large directories (will be mounted as volumes)
+Scans/
+output/
+logs/
+japanese_pokemon_cards/
+all_japanese_pokemon_cards/
+japanese_cards_english_names/
+japanese_cards_english_names_complete/
+japanese_pokemon_cards_complete/
+japanese_pokemon_cards_modern/
+recent_japanese_pokemon_cards/
+test_japanese_cards/
+base_set_unlimited_images/
+test_scraped_images/
+claudia/
+
+# Documentation
+*.md
+!README.md
+!SECURITY.md
+
+# Scripts not needed in container
+*.sh
+!docker/entrypoint.sh
+!docker/wait-for-it.sh
+
+# Test files
+pytest.ini
+run_tests.py
+test_*
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*~
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Database dumps
+*.sql
+*.dump
+
+# Archives
+*.tar
+*.tar.gz
+*.zip
+*.rar
+
+# Node modules (if any)
+node_modules/
+npm-debug.log
+yarn-error.log

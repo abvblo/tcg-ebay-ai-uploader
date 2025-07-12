@@ -1,0 +1,115 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ../..
+      dockerfile: config/docker/Dockerfile
+    container_name: ebay-tcg-web
+    restart: unless-stopped
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
+      - REDIS_URL=redis://redis:6379/0
+      - PYTHONUNBUFFERED=1
+    env_file:
+      - ../../.env
+    volumes:
+      - ../../src:/app/src:ro
+      - ../../input:/app/input
+      - ../../japanese_pokemon_cards:/app/japanese_pokemon_cards
+      - ../../logs:/app/logs
+      - uploads:/app/uploads
+      - static_files:/app/static
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ebay-tcg-network
+    command: ["python", "src/web/app.py"]
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: ebay-tcg-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/init-db:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ebay-tcg-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: ebay-tcg-redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - ebay-tcg-network
+
+  batch-processor:
+    build:
+      context: ../..
+      dockerfile: config/docker/Dockerfile
+    container_name: ebay-tcg-batch-processor
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}
+      - REDIS_URL=redis://redis:6379/0
+      - PYTHONUNBUFFERED=1
+    env_file:
+      - ../../.env
+    volumes:
+      - ./src:/app/src:ro
+      - ../../input:/app/input
+      - ./output:/app/output
+      - ./logs:/app/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - ebay-tcg-network
+    command: ["python", "src/main.py"]
+    profiles:
+      - batch
+
+networks:
+  ebay-tcg-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  uploads:
+    driver: local
+  static_files:
+    driver: local

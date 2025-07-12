@@ -1,8 +1,8 @@
 # Project Reorganization Summary
 
-## Date: July 11, 2025
+## Date: November 11, 2025 (Updated)
 
-This document summarizes all changes made during the project reorganization to improve structure, security, and maintainability.
+This document serves as the main context file for the eBay TCG Batch Uploader project, summarizing all changes made during the comprehensive project reorganization to improve structure, security, performance, and maintainability.
 
 ## Major Changes
 
@@ -96,29 +96,53 @@ This document summarizes all changes made during the project reorganization to i
 ### Empty Directories Removed
 - `docs/api/`
 - `assets/images/mtg/`
+- `Scans/` - Replaced by `input/` directory
 
-### New Directory Structure
+### Current Directory Structure
 ```
 .
 ├── alembic/                    # Database migrations
+├── assets/                     # Static assets
+│   └── images/                 # Card images
+│       ├── pokemon/            # Pokemon TCG images
+│       │   ├── english/        # English card sets
+│       │   └── japanese/       # Japanese card sets
+│       └── mtg/                # Magic: The Gathering (future)
+├── config/                     # Configuration files
+│   ├── alembic.ini            # Alembic configuration
+│   ├── pytest.ini             # Pytest configuration
+│   └── docker/                # Docker configs
 ├── docker/                     # Docker configuration
+│   ├── nginx/                  # Nginx configuration
+│   └── scripts/                # Container scripts
 ├── docs/                       # Documentation
+│   ├── deployment/            # Deployment guides
+│   ├── technical/             # Technical documentation
+│   ├── testing/               # Testing documentation
+│   └── user-guides/           # User documentation
+├── input/                      # User input directory for scans
+├── japanese_pokemon_cards_complete/  # Japanese card data
+├── output/                     # Generated output
+│   ├── manual_review/          # Manual review data
+│   ├── scans/                  # Processed scans
+│   └── ultra_cache/            # Cache storage
 ├── scripts/                    # Utility scripts
+│   ├── database/              # Database scripts
+│   ├── deployment/            # Deployment scripts
+│   ├── development/           # Development tools
+│   ├── docker/                # Docker scripts
+│   └── maintenance/           # Maintenance scripts
 ├── src/                        # Source code
 │   ├── api/                    # API integrations
-│   ├── cache/                  # Caching utilities
+│   ├── cache/                  # Caching utilities (deprecated)
 │   ├── database/               # Database layer
-│   ├── models/                 # Data models
+│   ├── models/                 # Data models (deprecated)
 │   ├── output/                 # Output formatting
 │   ├── processing/             # Image and card processing
 │   ├── scrapers/               # Web scrapers
 │   ├── utils/                  # Utility functions
 │   └── web/                    # Web interface
-├── tests/                      # Test suite
-└── output/                     # Generated output
-    ├── manual_review/          # Manual review data
-    ├── scans/                  # Processed scans
-    └── ultra_cache/            # Cache storage
+└── tests/                      # Test suite
 ```
 
 ## Configuration Updates
@@ -134,6 +158,79 @@ This document summarizes all changes made during the project reorganization to i
 - Separated development and production configurations
 - Added comprehensive documentation in templates
 
+## Important File Locations
+
+### Configuration Files
+- `.env` - Environment variables (create from `.env.template`)
+- `.env.template` - Template for environment variables
+- `.env.production.example` - Production environment example
+- `alembic.ini` - Database migration configuration
+- `pytest.ini` - Test configuration
+- `docker-compose.yml` - Development Docker setup
+- `docker-compose.production.yml` - Production Docker setup
+
+### Main Application Files
+- `src/main.py` - Main application entry point
+- `src/web/app.py` - Web interface
+- `src/config.py` - Application configuration
+- `src/models.py` - Data models
+
+### Key Processing Components
+- `src/processing/card_identifier.py` - Card identification logic
+- `src/processing/price_calculator.py` - Price calculation
+- `src/processing/image_processor.py` - Image processing
+- `src/processing/group_detector.py` - Multi-card detection
+
+### API Integrations
+- `src/api/ximilar.py` - Ximilar AI integration
+- `src/api/pokemon_tcg.py` - Pokemon TCG API
+- `src/api/ebay_eps.py` - eBay pricing data
+- `src/api/scryfall.py` - MTG card data (future)
+
+### Database Components
+- `src/database/models.py` - SQLAlchemy models
+- `src/database/service.py` - Database service layer
+- `src/database/crud.py` - CRUD operations
+- `alembic/versions/` - Database migrations
+
+## Quick Start Guide
+
+### Local Development Setup
+1. **Clone the repository**
+2. **Set up environment**:
+   ```bash
+   cp .env.template .env
+   # Edit .env with your API keys and settings
+   ```
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   pip install -r src/web/requirements.txt
+   ```
+4. **Set up database**:
+   ```bash
+   python scripts/database/migrate.py up
+   ```
+5. **Run the application**:
+   ```bash
+   python src/main.py  # For CLI mode
+   python src/web/app.py  # For web interface
+   ```
+
+### Docker Setup
+1. **Copy environment file**:
+   ```bash
+   cp .env.template .env
+   # Edit .env with your settings
+   ```
+2. **Start services**:
+   ```bash
+   docker-compose up -d
+   ```
+3. **Access the application**:
+   - Web interface: http://localhost:5000
+   - API docs: http://localhost:5000/docs
+
 ## Next Steps
 
 1. **Database Migration**: Run `python scripts/database/migrate.py` to set up the PostgreSQL database
@@ -141,9 +238,63 @@ This document summarizes all changes made during the project reorganization to i
 3. **Security Verification**: Run `python scripts/maintenance/verify_security.py` to check security settings
 4. **Testing**: Run `python scripts/development/run_tests.py` to ensure all functionality works
 
+## Key Project Features
+
+### Core Functionality
+1. **Card Identification**: Automated identification of Pokemon TCG cards using:
+   - Ximilar AI image recognition
+   - Pokemon TCG API integration
+   - Manual fallback options
+
+2. **Price Calculation**: Multi-source pricing with:
+   - TCGPlayer market prices
+   - eBay sold listings analysis
+   - Promo card special pricing logic
+   - Automatic pricing adjustments based on condition
+
+3. **Batch Processing**: Efficient processing of multiple cards with:
+   - Group detection for multi-card scans
+   - Automatic image optimization
+   - Parallel processing capabilities
+
+4. **Output Generation**: Multiple output formats:
+   - Excel files for eBay bulk upload
+   - HTML review pages for verification
+   - Organized file structure for processed images
+
+### Recent Major Updates
+
+1. **Migration to PostgreSQL**:
+   - Moved from SQLite to PostgreSQL for better performance
+   - Added Alembic for database version control
+   - Improved data integrity and concurrent access
+
+2. **Docker Containerization**:
+   - Full Docker support for development and production
+   - Nginx reverse proxy configuration
+   - Docker Compose for easy deployment
+
+3. **Performance Enhancements**:
+   - Async processing pipeline for image operations
+   - HTTP session pooling for API calls
+   - Rate limiting to prevent API throttling
+   - Caching improvements
+
+4. **Security Improvements**:
+   - Environment-based configuration
+   - Login system for web interface
+   - Security verification scripts
+   - Comprehensive .dockerignore
+
+5. **Testing Framework**:
+   - Pytest configuration
+   - Organized test structure
+   - Automated test runner
+
 ## Notes
 
 - All core functionality has been preserved during reorganization
 - Performance improvements through async processing are optional but recommended
 - Docker deployment is now available but not required for local development
 - Japanese card support is fully integrated but optional
+- The project now follows industry best practices for structure and deployment

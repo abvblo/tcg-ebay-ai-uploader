@@ -1,84 +1,96 @@
 """Manual identification system for low-confidence cards"""
+
+import csv
 import json
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
-import csv
-from datetime import datetime
+
 
 class ManualIdentificationSystem:
     """Handle manual identification workflow for misidentified cards"""
-    
+
     def __init__(self, output_dir: Path = None):
         self.output_dir = output_dir or Path("output/manual_review")
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.review_file = self.output_dir / "cards_for_review.csv"
         self.corrections_file = self.output_dir / "manual_corrections.json"
         self.load_corrections()
-        
+
     def load_corrections(self):
         """Load existing manual corrections"""
         self.corrections = {}
         if self.corrections_file.exists():
-            with open(self.corrections_file, 'r') as f:
+            with open(self.corrections_file, "r") as f:
                 self.corrections = json.load(f)
-                
+
     def save_corrections(self):
         """Save manual corrections"""
-        with open(self.corrections_file, 'w') as f:
+        with open(self.corrections_file, "w") as f:
             json.dump(self.corrections, f, indent=2)
-            
+
     def add_for_review(self, image_path: str, ximilar_data: Dict, reason: str):
         """Add a card for manual review"""
         # Create CSV if doesn't exist
         write_header = not self.review_file.exists()
-        
-        with open(self.review_file, 'a', newline='') as f:
+
+        with open(self.review_file, "a", newline="") as f:
             writer = csv.writer(f)
-            
+
             if write_header:
-                writer.writerow([
-                    'Timestamp', 'Image Path', 'Ximilar Name', 'Ximilar Set', 
-                    'Ximilar Number', 'Confidence', 'Review Reason',
-                    'Manual Name', 'Manual Set', 'Manual Number', 'Notes'
-                ])
-                
-            writer.writerow([
-                datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                image_path,
-                ximilar_data.get('name', ''),
-                ximilar_data.get('set_name', ''),
-                ximilar_data.get('number', ''),
-                f"{ximilar_data.get('confidence', 0):.2%}",
-                reason,
-                '',  # Manual name (to be filled)
-                '',  # Manual set (to be filled)
-                '',  # Manual number (to be filled)
-                ''   # Notes (to be filled)
-            ])
-            
+                writer.writerow(
+                    [
+                        "Timestamp",
+                        "Image Path",
+                        "Ximilar Name",
+                        "Ximilar Set",
+                        "Ximilar Number",
+                        "Confidence",
+                        "Review Reason",
+                        "Manual Name",
+                        "Manual Set",
+                        "Manual Number",
+                        "Notes",
+                    ]
+                )
+
+            writer.writerow(
+                [
+                    datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    image_path,
+                    ximilar_data.get("name", ""),
+                    ximilar_data.get("set_name", ""),
+                    ximilar_data.get("number", ""),
+                    f"{ximilar_data.get('confidence', 0):.2%}",
+                    reason,
+                    "",  # Manual name (to be filled)
+                    "",  # Manual set (to be filled)
+                    "",  # Manual number (to be filled)
+                    "",  # Notes (to be filled)
+                ]
+            )
+
     def get_manual_correction(self, image_path: str) -> Optional[Dict]:
         """Get manual correction for an image if exists"""
         return self.corrections.get(image_path)
-        
+
     def add_manual_correction(self, image_path: str, correction: Dict):
         """Add a manual correction"""
-        self.corrections[image_path] = {
-            **correction,
-            'timestamp': datetime.now().isoformat()
-        }
+        self.corrections[image_path] = {**correction, "timestamp": datetime.now().isoformat()}
         self.save_corrections()
-        
+
     def generate_review_html(self):
         """Generate HTML file for easy review"""
         html_path = self.output_dir / f"review_{datetime.now().strftime('%Y%m%d_%H%M%S')}.html"
-        
+
         cards_to_review = []
         if self.review_file.exists():
-            with open(self.review_file, 'r') as f:
+            with open(self.review_file, "r") as f:
                 reader = csv.DictReader(f)
                 cards_to_review = list(reader)
-                
-        html_content = """
+
+        html_content = (
+            """
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,15 +143,18 @@ class ManualIdentificationSystem:
 </head>
 <body>
     <h1>Cards Requiring Manual Review</h1>
-    <p>Total cards to review: <strong>""" + str(len(cards_to_review)) + """</strong></p>
+    <p>Total cards to review: <strong>"""
+            + str(len(cards_to_review))
+            + """</strong></p>
     
     <div id="cards-container">
 """
-        
+        )
+
         for card in cards_to_review:
-            confidence = float(card['Confidence'].strip('%')) / 100
-            confidence_class = 'low-confidence' if confidence < 0.5 else 'medium-confidence'
-            
+            confidence = float(card["Confidence"].strip("%")) / 100
+            confidence_class = "low-confidence" if confidence < 0.5 else "medium-confidence"
+
             html_content += f"""
         <div class="card-review {confidence_class}">
             <h3>Review Required: {card['Ximilar Name'] or 'Unknown'}</h3>
@@ -178,7 +193,7 @@ class ManualIdentificationSystem:
             </div>
         </div>
 """
-        
+
         html_content += """
     </div>
     
@@ -199,8 +214,8 @@ class ManualIdentificationSystem:
 </body>
 </html>
 """
-        
-        with open(html_path, 'w') as f:
+
+        with open(html_path, "w") as f:
             f.write(html_content)
-            
+
         return html_path
