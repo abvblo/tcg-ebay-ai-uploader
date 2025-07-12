@@ -19,6 +19,8 @@ class PokemonTCGClient:
         self.price_config = PriceMappingConfig()
         self.persist_to_db = persist_to_db
         self.endpoint_name = "pokemon_tcg"
+        self.MAX_RETRIES = 3  # Add max retries constant
+        self.TIMEOUT = 30  # Add timeout in seconds
 
         logger.info("✅ Pokemon TCG API client initialized with database integration")
 
@@ -35,6 +37,7 @@ class PokemonTCGClient:
 
         # Try multiple search strategies
         search_strategies = self._build_search_strategies(card_name, set_name, card_number)
+        retry_count = 0
 
         for strategy_name, params in search_strategies:
             logger.info(f"   🔍 Trying search strategy: {strategy_name}")
@@ -45,7 +48,12 @@ class PokemonTCGClient:
             await rate_limiter.acquire(self.endpoint_name)
 
             try:
-                async with session.get(self.base_url, headers=headers, params=params) as response:
+                async with session.get(
+                    self.base_url, 
+                    headers=headers, 
+                    params=params,
+                    timeout=aiohttp.ClientTimeout(total=self.TIMEOUT)
+                ) as response:
                     if response.status == 200:
                         data = await response.json()
                         cards = data.get("data", [])
@@ -68,16 +76,41 @@ class PokemonTCGClient:
                     elif response.status == 429:
                         rate_limiter.report_error(self.endpoint_name, is_rate_limit_error=True)
                         logger.error(f"Rate limit error with {strategy_name}: {response.status}")
-                        await asyncio.sleep(5)  # Extra wait on rate limit
+                        retry_count += 1
+                        if retry_count >= self.MAX_RETRIES:
+                            logger.error(f"Max retries ({self.MAX_RETRIES}) exceeded for rate limiting")
+                            return None
+                        # Exponential backoff
+                        wait_time = min(2 ** retry_count, 30)  # Max 30 seconds
+                        logger.info(f"Waiting {wait_time} seconds before retry...")
+                        await asyncio.sleep(wait_time)
                         continue
                     else:
                         rate_limiter.report_error(self.endpoint_name)
                         logger.error(f"API error with {strategy_name}: {response.status}")
+                        retry_count += 1
+                        if retry_count >= self.MAX_RETRIES:
+                            logger.error(f"Max retries ({self.MAX_RETRIES}) exceeded")
+                            return None
+                        # Brief wait before next strategy
+                        await asyncio.sleep(1)
                         continue
 
+            except asyncio.TimeoutError:
+                rate_limiter.report_error(self.endpoint_name)
+                logger.error(f"Pokemon TCG API timeout with {strategy_name} after {self.TIMEOUT}s")
+                retry_count += 1
+                if retry_count >= self.MAX_RETRIES:
+                    logger.error(f"Max retries ({self.MAX_RETRIES}) exceeded for timeout")
+                    return None
+                continue
             except Exception as e:
                 rate_limiter.report_error(self.endpoint_name)
                 logger.error(f"Pokemon TCG API error with {strategy_name}: {e}")
+                retry_count += 1
+                if retry_count >= self.MAX_RETRIES:
+                    logger.error(f"Max retries ({self.MAX_RETRIES}) exceeded for errors")
+                    return None
                 continue
 
         logger.warning(f"   ⚠️ No match found for {card_name} after trying all strategies")
@@ -615,7 +648,9 @@ class PokemonTCGClient:
 
         try:
             async with session.get(
-                "https://api.pokemontcg.io/v2/sets", headers=headers
+                "https://api.pokemontcg.io/v2/sets", 
+                headers=headers,
+                timeout=aiohttp.ClientTimeout(total=self.TIMEOUT)
             ) as response:
                 if response.status == 200:
                     data = await response.json()
@@ -646,7 +681,12 @@ class PokemonTCGClient:
         await rate_limiter.acquire(self.endpoint_name)
 
         try:
-            async with session.get(self.base_url, headers=headers, params=params) as response:
+            async with session.get(
+                self.base_url, 
+                headers=headers, 
+                params=params,
+                timeout=aiohttp.ClientTimeout(total=self.TIMEOUT)
+            ) as response:
                 if response.status == 200:
                     data = await response.json()
                     rate_limiter.report_success(self.endpoint_name)

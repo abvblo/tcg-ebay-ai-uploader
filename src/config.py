@@ -262,19 +262,6 @@ class Config:
         original_pokemon_key = self.pokemon_tcg_api_key
         original_openai_key = self.openai_api_key
 
-        # Validate placeholder values
-        if self.pokemon_tcg_api_key == "your_pokemon_tcg_api_key_here":
-            self.pokemon_tcg_api_key = None
-            logger.warning("⚠️ Pokemon TCG API key is placeholder - some features may be limited")
-        elif not self.pokemon_tcg_api_key:
-            logger.warning("⚠️ Pokemon TCG API key not found - some features may be limited")
-
-        if self.openai_api_key == "your_openai_api_key_here":
-            self.openai_api_key = None
-            logger.warning("⚠️ OpenAI API key is placeholder - title optimization will be disabled")
-        elif not self.openai_api_key:
-            logger.warning("⚠️ OpenAI API key not found - title optimization will be disabled")
-
         # eBay configuration - try both ebay_api and ebay keys, also check environment variables
         self.ebay_config = self.data.get("ebay_api", self.data.get("ebay", {}))
 
@@ -287,16 +274,6 @@ class Config:
             self.ebay_config["certid"] = os.getenv("EBAY_CERT_ID")
         if os.getenv("EBAY_USER_TOKEN"):
             self.ebay_config["token"] = os.getenv("EBAY_USER_TOKEN")
-
-        # Validate eBay placeholder values
-        ebay_placeholder_found = False
-        ebay_placeholder_keys = []
-        for key, value in self.ebay_config.items():
-            if isinstance(value, str) and value.startswith("your_ebay_"):
-                ebay_placeholder_found = True
-                ebay_placeholder_keys.append(f"EBAY_{key.upper()}")
-                self.ebay_config[key] = None
-                logger.warning(f"⚠️ eBay {key} is placeholder - eBay features will be limited")
         
         # SECURITY: Check for placeholder values and raise error if found
         placeholder_found = False
@@ -334,6 +311,15 @@ class Config:
             placeholder_found = True
             placeholder_keys.append("DB_NAME")
         
+        # Check eBay configuration for placeholder values
+        ebay_placeholder_found = False
+        ebay_placeholder_keys = []
+        if self.ebay_config:  # Check if ebay_config is not empty
+            for key, value in self.ebay_config.items():
+                if isinstance(value, str) and value.startswith("your_ebay_"):
+                    ebay_placeholder_found = True
+                    ebay_placeholder_keys.append(f"EBAY_{key.upper()}")
+        
         # Add eBay placeholder keys if any were found
         if ebay_placeholder_found:
             placeholder_found = True
@@ -346,6 +332,28 @@ class Config:
                 f"Please update the following keys in your .env file: {', '.join(placeholder_keys)}. "
                 f"Copy .env.template to .env and replace placeholder values with your actual credentials."
             )
+
+        # Now apply the modifications after security check
+        # Validate placeholder values for Pokemon TCG API key
+        if self.pokemon_tcg_api_key == "your_pokemon_tcg_api_key_here":
+            self.pokemon_tcg_api_key = None
+            logger.warning("⚠️ Pokemon TCG API key is placeholder - some features may be limited")
+        elif not self.pokemon_tcg_api_key:
+            logger.warning("⚠️ Pokemon TCG API key not found - some features may be limited")
+
+        # Validate placeholder values for OpenAI API key
+        if self.openai_api_key == "your_openai_api_key_here":
+            self.openai_api_key = None
+            logger.warning("⚠️ OpenAI API key is placeholder - title optimization will be disabled")
+        elif not self.openai_api_key:
+            logger.warning("⚠️ OpenAI API key not found - title optimization will be disabled")
+        
+        # Validate eBay placeholder values and nullify them
+        if self.ebay_config:  # Check if ebay_config is not empty
+            for key, value in list(self.ebay_config.items()):  # Use list() to avoid runtime modification issues
+                if isinstance(value, str) and value.startswith("your_ebay_"):
+                    self.ebay_config[key] = None
+                    logger.warning(f"⚠️ eBay {key} is placeholder - eBay features will be limited")
 
     def _setup_business_policies(self) -> None:
         """Set up eBay business policies with defaults"""
@@ -393,3 +401,12 @@ class Config:
             ),
             "raise_for_status": True,
         }
+
+    @property
+    def ebay_app_id(self) -> Optional[str]:
+        """Get the eBay application ID from config"""
+        return self.ebay_config.get("appid")
+
+    def get_database_url(self) -> str:
+        """Get the database URL"""
+        return self.database_url

@@ -124,9 +124,11 @@ async def main():
         logger.info(f"   • Variation listings: {len(variation_listings)}")
         if variation_listings:
             logger.info(f"   • Total cards in variations: {total_cards_in_variations}")
-            logger.info(
-                f"   • Average copies per variation: {total_cards_in_variations/len(variation_listings):.1f}"
-            )
+            # Add check for empty variation_listings to prevent division by zero
+            if len(variation_listings) > 0:
+                logger.info(
+                    f"   • Average copies per variation: {total_cards_in_variations/len(variation_listings):.1f}"
+                )
         logger.info(f"   • Total listings created: {len(cards)}")
 
         # End processing timer and print metrics summary

@@ -169,17 +169,14 @@ class DatabaseValidator:
         if card:
             return card
 
-        # Try with partial set name match - escape the set_name for LIKE
-        from sqlalchemy import bindparam
-
-        escaped_set_name = set_name.replace("%", "\\%").replace("_", "\\_")
+        # Try with partial set name match - use parameterized query
         card = (
             self.session.query(PokemonCard)
             .join(PokemonSet)
             .filter(
                 and_(
                     func.lower(PokemonCard.name) == name.lower(),
-                    PokemonSet.name.ilike(f"%{escaped_set_name}%"),
+                    PokemonSet.name.ilike(func.concat("%", set_name, "%")),
                     PokemonCard.number == number,
                 )
             )
@@ -194,12 +191,11 @@ class DatabaseValidator:
         """Find fuzzy matches with scores"""
         matches = []
 
-        # Get potential matches by name - escape the name for LIKE
+        # Get potential matches by name - use parameterized query
         first_name = name.split()[0] if name.split() else name
-        escaped_name = first_name.replace("%", "\\%").replace("_", "\\_")
         potential_cards = (
             self.session.query(PokemonCard)
-            .filter(PokemonCard.name.ilike(f"%{escaped_name}%"))
+            .filter(PokemonCard.name.ilike(func.concat("%", first_name, "%")))
             .limit(50)
             .all()
         )
@@ -310,12 +306,11 @@ class DatabaseValidator:
             card_num, set_total = number.split("/")
             set_total = int(set_total)
 
-            # Look up actual set size - escape set_name for LIKE
+            # Look up actual set size - use parameterized query
             set_name = ximilar_result.get("set_name", "")
-            escaped_set_name = set_name.replace("%", "\\%").replace("_", "\\_")
             actual_set = (
                 self.session.query(PokemonSet)
-                .filter(PokemonSet.name.ilike(f"%{escaped_set_name}%"))
+                .filter(PokemonSet.name.ilike(func.concat("%", set_name, "%")))
                 .first()
             )
 

@@ -20,8 +20,8 @@ except ImportError:
     if str(parent_dir) not in sys.path:
         sys.path.insert(0, str(parent_dir))
 
-    from src.database.service import DatabaseService
-    from src.models import ProcessingConfig
+    from database.service import DatabaseService
+    from models import ProcessingConfig
 
 
 class CacheManager:
